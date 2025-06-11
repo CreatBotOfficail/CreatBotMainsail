@@ -104,6 +104,7 @@ export default class TheConnectingDialog extends Mixins(BaseMixin, ThemeMixin) {
         this.counter++
         this.$store.dispatch('socket/setData', { connectingFailed: false })
         this.$socket.connect()
+        this.$emit('goLogin',1)
     }
 }
 </script>

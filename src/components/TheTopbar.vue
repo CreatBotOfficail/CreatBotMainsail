@@ -56,6 +56,7 @@
             <the-notification-menu />
             <the-settings-menu />
             <the-top-corner-menu />
+            <img class="outImg" @click="dialog = true" src="../../public/img/icons/tuichu.png" />
         </v-app-bar>
         <v-snackbar v-model="uploadSnackbar.status" :timeout="-1" fixed right bottom>
             <strong>{{ $t('App.TopBar.Uploading') }} {{ uploadSnackbar.filename }}</strong>
@@ -70,6 +71,25 @@
             </template>
         </v-snackbar>
         <emergency-stop-dialog :show-dialog="showEmergencyStopDialog" @close="showEmergencyStopDialog = false" />
+        <v-dialog v-model="dialog" max-width="290">
+          <v-card color="white" style="color: black;">
+            <v-card-title class="headings">
+              Prompt
+            </v-card-title>
+            <v-card-text style="color: black;">
+            Are you sure you want to log out?
+            </v-card-text>
+            <v-card-actions>
+              <v-spacer />
+              <v-btn text style="color: black;" @click="dialog = false">
+                NO
+              </v-btn>
+              <v-btn text style="color: black;" @click="goLogot">
+                YES
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
     </div>
 </template>
 
@@ -229,6 +249,18 @@ export default class TheTopbar extends Mixins(BaseMixin, ThemeMixin) {
                 this.naviDrawer = this.$vuetify.breakpoint.lgAndUp
         }
     }
+    
+    dialog: boolean = false;
+    goLogot() {
+      this.dialog = false;
+      this.$services.post('/access/logout').then((response) => {
+          localStorage.removeItem('token');
+          this.$toast.success('logout successful', {
+              position: 'top'
+            });
+          window.location.reload();
+      });
+    }
 
     btnEmergencyStop() {
         const confirmOnEmergencyStop = this.$store.state.gui.uiSettings.confirmOnEmergencyStop
@@ -347,5 +379,10 @@ export default class TheTopbar extends Mixins(BaseMixin, ThemeMixin) {
     header.topbar {
         z-index: 8 !important;
     }
+}
+.outImg {
+    width: 24px;
+    height: 24px;
+    margin: 12px;
 }
 </style>

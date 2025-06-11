@@ -37,6 +37,12 @@ import 'vue-resize/dist/vue-resize.css'
 import VueResize from 'vue-resize'
 import { defaultMode } from './store/variables'
 
+
+import axios from 'axios'
+import services from '@/utils/services'
+
+Vue.prototype.$services = services
+
 Vue.config.productionTip = false
 
 Vue.directive('observe-visibility', ObserveVisibility)
@@ -86,10 +92,6 @@ const initLoad = async () => {
         window.console.error('Failed to load config.json')
         window.console.error(e)
     }
-
-    const url = store.getters['socket/getWebsocketUrl']
-    Vue.use(WebSocketPlugin, { url, store })
-    if (store?.state?.instancesDB === 'moonraker') Vue.$socket.connect()
 }
 
 initLoad().then(() =>
@@ -98,6 +100,13 @@ initLoad().then(() =>
         router,
         store,
         i18n,
+        mounted() {
+            const url = this.$store.getters['socket/getWebsocketUrl'];
+            Vue.use(WebSocketPlugin, { url: url, store: this.$store });
+            if (this.$store?.state?.instancesDB === 'moonraker') {
+                Vue.$socket.connect();
+            }
+        },
         render: (h) => h(App),
     }).$mount('#app')
 )

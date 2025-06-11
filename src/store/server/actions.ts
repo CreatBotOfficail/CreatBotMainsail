@@ -21,11 +21,18 @@ export const actions: ActionTree<ServerState, RootState> = {
 
         // identify client
         try {
+            let token = null
+            if (localStorage.getItem('token')) {
+                token = localStorage.getItem('token')
+            } else {
+                token = null
+            }
             const connection = await Vue.$socket.emitAndWait('server.connection.identify', {
                 client_name: 'mainsail',
                 version: rootState.packageVersion,
                 type: 'web',
                 url: 'https://github.com/mainsail-crew/mainsail',
+                access_token: token
             })
             commit('setConnectionId', connection.connection_id)
         } catch (e: any) {

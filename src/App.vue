@@ -20,7 +20,8 @@
             <the-macro-prompt />
         </template>
         <the-select-printer-dialog v-else-if="instancesDB !== 'moonraker'" />
-        <the-connecting-dialog v-else />
+        <the-connecting-dialog v-else @goLogin="goLogins" />
+        <openLogin ref="loginRef" />
     </v-app>
 </template>
 
@@ -45,6 +46,7 @@ import TheScrewsTiltAdjustDialog from '@/components/dialogs/TheScrewsTiltAdjustD
 import { setAndLoadLocale } from './plugins/i18n'
 import TheMacroPrompt from '@/components/dialogs/TheMacroPrompt.vue'
 import { AppRoute } from '@/routes'
+import openLogin from './components/login.vue'
 
 Component.registerHooks(['metaInfo'])
 
@@ -63,6 +65,7 @@ Component.registerHooks(['metaInfo'])
         TheManualProbeDialog,
         TheBedScrewsDialog,
         TheScrewsTiltAdjustDialog,
+        openLogin,
     },
 })
 export default class App extends Mixins(BaseMixin, ThemeMixin) {
@@ -390,12 +393,19 @@ export default class App extends Mixins(BaseMixin, ThemeMixin) {
             doc.style.setProperty('--app-height', window.innerHeight + 'px')
         })
     }
+    
+    goLogins() {
+        this.$refs.loginRef.goLogin()
+    }
 
     mounted(): void {
         this.drawFavicon(this.print_percent)
         this.appHeight()
         window.addEventListener('resize', this.appHeight)
         window.addEventListener('orientationchange', this.appHeight)
+        if (!localStorage.getItem('token')) {
+           this.$refs.loginRef.showDialog=true
+        }
     }
 }
 </script>
