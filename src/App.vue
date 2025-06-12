@@ -403,9 +403,6 @@ export default class App extends Mixins(BaseMixin, ThemeMixin) {
         this.appHeight()
         window.addEventListener('resize', this.appHeight)
         window.addEventListener('orientationchange', this.appHeight)
-        if (!localStorage.getItem('token')) {
-           this.$refs.loginRef.showDialog=true
-        }
     }
 }
 </script>
