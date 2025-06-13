@@ -2,11 +2,11 @@
     <v-dialog ref="openDialog" v-model="showDialog" persistent :width="450">
         <panel :title="`You need to log in first`" card-class="the-connection-dialog" :margin-bottom="false">
             <v-card-text class="pt-5">
-                <v-text-field v-model="username" label="account" placeholder="Please enter account name"></v-text-field>
+                <!-- <v-text-field v-model="username" label="account" placeholder="Please enter account name"></v-text-field> -->
                 <v-text-field v-model="password" label="password" type="password"
                     placeholder="please enter the password"></v-text-field>
             </v-card-text>
-            <v-card-actions class="justify-center" style="margin-bottom:20px">
+            <v-card-actions class="justify-center" >
                 <v-btn class="black" ton @click="goLogin()" variant="tonal">login</v-btn>
             </v-card-actions>
         </panel>

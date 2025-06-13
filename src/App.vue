@@ -395,7 +395,7 @@ export default class App extends Mixins(BaseMixin, ThemeMixin) {
     }
     
     goLogins() {
-        this.$refs.loginRef.goLogin()
+        this.$refs.loginRef.showDialog=true
     }
 
     mounted(): void {
