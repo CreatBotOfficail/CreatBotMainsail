@@ -59,13 +59,13 @@ export default class WebrtcGo2rtc extends Mixins(BaseMixin, WebcamMixin) {
 
     get url() {
         let urlSearch = ''
-        let baseURL = new URL(this.camSettings?.stream_url, this.printerUrl)
+        let url = new URL(this.convertUrl(this.camSettings?.stream_url, this.printerUrl))
 
         try {
-            urlSearch = new URL(baseURL).search.toString()
-            url = new URL('api/ws' + urlSearch, baseURL)
+            urlSearch = new URL(url).search.toString()
+            url = new URL('api/ws' + urlSearch, url)
         } catch (e) {
-            this.log('invalid url', baseURL)
+            this.log('invalid url', url)
         }
 
         // create media types array
