@@ -1,11 +1,24 @@
 import axios from 'axios'
 import Vue from 'vue'
-import { VSnackbar } from 'vuetify/lib'
+
+let hostname: string | undefined;
+let port: string | undefined;
+
+(async () => {
+    const base = import.meta.env.BASE_URL ?? '/';
+    try {
+        const res = await fetch(`${base}config.json`);
+        const file = (await res.json()) as Record<string, unknown>;
+        hostname = file.hostname as string;
+        port = file.port as string;
+    } catch (error) {
+        console.error('获取配置文件时出错:', error);
+    }
+})();
 
 // 创建 axios 实例
 const service = axios.create({
-    baseURL: 'http://d600pro2hs-d7e7.lan:7125',
-    // baseURL: process.env.VUE_APP_BASE_API, // 从环境变量获取基础URL
+    baseURL: `http://${hostname}:${port}`,
     timeout: 10000 // 请求超时时间
 })
 
