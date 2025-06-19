@@ -7,7 +7,7 @@
                     placeholder="please enter the password"></v-text-field>
             </v-card-text>
             <v-card-actions class="justify-center" >
-                <v-btn class="black" ton @click="goLogin()" variant="tonal">login</v-btn>
+                <v-btn class="black" ton @click="goSocketLogin()" variant="tonal">login</v-btn>
             </v-card-actions>
         </panel>
     </v-dialog>
@@ -16,6 +16,7 @@
 <script lang="ts">
 import BaseMixin from '@/components/mixins/base';
 import ThemeMixin from '@/components/mixins/theme';
+import Vue from 'vue'
 
 export default {
     mixins: [BaseMixin, ThemeMixin],
@@ -32,6 +33,23 @@ export default {
 
     },
     methods: {
+        //使用websock 发起登录请求
+        goSocketLogin() {
+            const loginData = { username: this.username, password: this.password, source: 'moonraker' };
+            Vue.$socket.emitAndWait('access.login', loginData)
+                .then(({ token }) => {
+                    if (token) {
+                        this.$toast.success('login is successful', { position: 'top' });
+                        localStorage.setItem('token', token);
+                        window.location.reload();
+                    }
+                })
+                .catch(() => {
+                    this.showDialog = true;
+                    this.$toast.error('login failed', { position: 'top' });
+                });
+        },
+
         goLogin() {
             const data = {
                 username: this.username,
