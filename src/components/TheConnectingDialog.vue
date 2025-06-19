@@ -1,5 +1,5 @@
 <template>
-    <v-dialog v-model="showDialog" persistent :width="400">
+    <v-dialog v-model="showDialog" persistent :width="450">
         <panel :title="titleText" :icon="mdiConnection" card-class="the-connection-dialog" :margin-bottom="false">
             <v-card-text v-if="connectingFailed" class="pt-5">
                 <connection-status :moonraker="false" />

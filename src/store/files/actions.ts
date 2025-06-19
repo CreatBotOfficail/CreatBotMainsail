@@ -12,6 +12,7 @@ import i18n from '@/plugins/i18n'
 import { hiddenDirectories, validGcodeExtensions } from '@/store/variables'
 import axios, { AxiosProgressEvent } from 'axios'
 import { BatchMessage } from '@/plugins/webSocketClient'
+import { getDownloadZip } from '@/utils/tool'
 
 export const actions: ActionTree<FileState, RootState> = {
     reset({ commit }) {
@@ -362,7 +363,10 @@ export const actions: ActionTree<FileState, RootState> = {
     downloadZip({ rootGetters }, payload) {
         const apiUrl = rootGetters['socket/getUrl']
         const url = `${apiUrl}/server/files/${payload.destination.root}/${encodeURI(payload.destination.path)}`
-        window.open(url)
+        const urls = `/server/files/${payload.destination.root}/${encodeURI(payload.destination.path)}`
+        console.log(`获取下载的url`, urls);
+
+        getDownloadZip(urls);
     },
 
     rolloverLog(_, payload) {

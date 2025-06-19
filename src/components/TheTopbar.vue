@@ -72,23 +72,15 @@
         </v-snackbar>
         <emergency-stop-dialog :show-dialog="showEmergencyStopDialog" @close="showEmergencyStopDialog = false" />
         <v-dialog v-model="dialog" max-width="290">
-          <v-card color="white" style="color: black;">
-            <v-card-title class="headings">
-              Prompt
-            </v-card-title>
-            <v-card-text style="color: black;">
-            Are you sure you want to log out?
-            </v-card-text>
-            <v-card-actions>
-              <v-spacer />
-              <v-btn text style="color: black;" @click="dialog = false">
-                NO
-              </v-btn>
-              <v-btn text style="color: black;" @click="goLogot">
-                YES
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+            <v-card color="#1e1e1e">
+                <v-card-title class="headings">logout</v-card-title>
+                <v-card-text style="color:#FFF">Are you sure you want to log out?</v-card-text>
+                <v-card-actions>
+                    <v-spacer />
+                    <v-btn text style="color: #E53935" @click="dialog = false">NO</v-btn>
+                    <v-btn text style="color: #43a047" @click="goLogot">YES</v-btn>
+                </v-card-actions>
+            </v-card>
         </v-dialog>
     </div>
 </template>
@@ -249,17 +241,15 @@ export default class TheTopbar extends Mixins(BaseMixin, ThemeMixin) {
                 this.naviDrawer = this.$vuetify.breakpoint.lgAndUp
         }
     }
-    
-    dialog: boolean = false;
+
+    dialog: boolean = false
+
     goLogot() {
-      this.dialog = false;
-      this.$services.post('/access/logout').then((response) => {
-          localStorage.removeItem('token');
-          this.$toast.success('logout successful', {
-              position: 'top'
-            });
-          window.location.reload();
-      });
+        this.$socket.emitAndWait('access.logout').then(({ res }) => {
+            localStorage.removeItem('token')
+            this.$toast.success('logout successful', { position: 'top' })
+            window.location.reload()
+        })
     }
 
     btnEmergencyStop() {

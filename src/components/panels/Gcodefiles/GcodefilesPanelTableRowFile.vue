@@ -253,7 +253,8 @@ export default class GcodefilesPanelTableRowFile extends Mixins(BaseMixin, Contr
         const filename = this.currentPath + '/' + this.item.filename
         const href = this.apiUrl + '/server/files/gcodes' + escapePath(filename)
 
-        window.open(href)
+        // window.open(href)
+        this.$getDownloadZip(href,filename)
     }
 
     editFile() {
