@@ -56,7 +56,7 @@
             <the-notification-menu />
             <the-settings-menu />
             <the-top-corner-menu />
-            <img class="outImg" @click="dialog = true" src="../../public/img/icons/tuichu.png" />
+            <img class="outImg" v-if="TokenStatus" @click="dialog = true" src="../../public/img/icons/tuichu.png" />
         </v-app-bar>
         <v-snackbar v-model="uploadSnackbar.status" :timeout="-1" fixed right bottom>
             <strong>{{ $t('App.TopBar.Uploading') }} {{ uploadSnackbar.filename }}</strong>
@@ -224,6 +224,10 @@ export default class TheTopbar extends Mixins(BaseMixin, ThemeMixin) {
 
     get defaultNavigationStateSetting() {
         return this.$store.state.gui?.uiSettings?.defaultNavigationStateSetting ?? 'alwaysOpen'
+    }
+
+    get TokenStatus() {
+        return localStorage.getItem('token') ? true : false
     }
 
     mounted() {
