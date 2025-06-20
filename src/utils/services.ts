@@ -1,20 +1,11 @@
 import axios from 'axios'
 import Vue from 'vue'
 
-let hostname: string | undefined;
-let port: string | undefined;
 
-(async () => {
-    const base = import.meta.env.BASE_URL ?? '/';
-    try {
-        const res = await fetch(`${base}config.json`);
-        const file = (await res.json()) as Record<string, unknown>;
-        hostname = file.hostname as string;
-        port = file.port as string;
-    } catch (error) {
-        console.error('获取配置文件时出错:', error);
-    }
-})();
+const hostname = (import.meta.env.VUE_APP_HOSTNAME as string) || window.location.hostname
+const defaultPort = window.location.port || (window.location.protocol === 'https:' ? 443 : 80)
+const port = import.meta.env.VUE_APP_PORT ? Number(import.meta.env.VUE_APP_PORT) : Number(defaultPort)
+
 
 // 创建 axios 实例
 const service = axios.create({
@@ -39,26 +30,19 @@ service.interceptors.request.use(
 )
 service.interceptors.response.use(
     response => {
-        const res = response.data
+        const res = response
         return res
     },
     error => {
-        let message = ''
         if (error.response) {
-            message = error.response.statusText
-            Vue.prototype.$toast.error(message, {
-                position: 'top'
-            });
-            return Promise.reject(error.response.data)
+            const { status, statusText } = error.response;
+            if (status === 401) { localStorage.removeItem('token'); window.location.reload(); return Promise.reject(error.response.data); }
+            const errorMsg = error.code === 'ECONNABORTED' && error.message.includes('timeout') ? 'Request timed out. Please refresh and try again' : statusText;
+            Vue.prototype.$toast.error(errorMsg, { position: 'top' });
+            return Promise.reject(error.response.data);
         } else {
-            message = error.message
+            return Promise.reject(error);
         }
-        if (error.code === 'ECONNABORTED' && error.message.includes('timeout')) {
-            Vue.prototype.$toast.error('Request timed out. Please refresh and try again', {
-                position: 'top'
-            });
-        }
-        return Promise.reject(error);
     }
 )
 

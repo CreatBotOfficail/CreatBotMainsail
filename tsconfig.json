@@ -29,7 +29,8 @@
         "cypress/**/*.ts",
         "tests/**/*.ts",
         "tests/**/*.tsx",
-        "node_modules/vite-plugin-pwa/client.d.ts"
+        "node_modules/vite-plugin-pwa/client.d.ts",
+        "src/utils/tool.ts"
     ],
     "exclude": ["node_modules"]
 }
