@@ -10,6 +10,7 @@ const i18n = new VueI18n({
     fallbackLocale: (import.meta.env.VUE_APP_I18N_FALLBACK_LOCALE as string) || 'en',
     messages: {},
     warnHtmlInMessage: 'off',
+    silentTranslationWarn: true
 })
 
 export default i18n
