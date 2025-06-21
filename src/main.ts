@@ -40,7 +40,7 @@ import { defaultMode } from './store/variables'
 
 import axios from 'axios'
 import services from '@/utils/services'
-import { getDownloadLog,getDownloadZip} from '@/utils/tool'
+import { getDownloadLog, getDownloadZip } from '@/utils/tool'
 
 Vue.prototype.$services = services
 Vue.prototype.$getDownloadLog = getDownloadLog

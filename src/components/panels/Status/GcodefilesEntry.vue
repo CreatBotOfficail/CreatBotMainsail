@@ -272,7 +272,7 @@ export default class StatusPanelGcodefilesEntry extends Mixins(BaseMixin, Contro
 
         // window.open(href)
 
-        const href =  '/server/files/gcodes/' + escapePath(this.item.filename)
+        const href = '/server/files/gcodes/' + escapePath(this.item.filename)
         this.$getDownloadZip(href)
     }
 

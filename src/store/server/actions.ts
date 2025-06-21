@@ -36,7 +36,7 @@ export const actions: ActionTree<ServerState, RootState> = {
                 this.dispatch('socket/setConnectionFailed', e.message)
             }
 
-            if (e.code === 400||e.message=='JWT Expired') { localStorage.removeItem("token");  window.location.reload() }
+            if (e.code === 400 || e.message == 'JWT Expired') { localStorage.removeItem("token"); window.location.reload() }
             Vue.prototype.$toast.error(e.message, { position: 'top' });
             window.console.error('Error while identifying client: ' + e.message)
             return

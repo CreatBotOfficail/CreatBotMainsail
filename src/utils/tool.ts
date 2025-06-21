@@ -1,6 +1,4 @@
-
 import service from './services';
-
 
 export const getDownloadLog = async (url: string): Promise<void> => {
     try {
@@ -26,6 +24,7 @@ export const getDownloadLog = async (url: string): Promise<void> => {
         }
     }
 };
+
 export const getDownloadZip = async (url: string, filename?: string): Promise<void> => {
     try {
         const response = await service.get(url, { responseType: 'blob' });
@@ -62,8 +61,6 @@ export const getDownloadZip = async (url: string, filename?: string): Promise<vo
     }
 }
 
-
-
 //获取当前时间
 function getDateTime() {
     let date = new Date();
@@ -75,5 +72,3 @@ function getDateTime() {
     let second = date.getSeconds();
     return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 }
-
-

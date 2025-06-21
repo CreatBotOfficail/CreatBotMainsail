@@ -393,9 +393,9 @@ export default class App extends Mixins(BaseMixin, ThemeMixin) {
             doc.style.setProperty('--app-height', window.innerHeight + 'px')
         })
     }
-    
+
     goLogins() {
-        this.$refs.loginRef.showDialog=true
+        this.$refs.loginRef.showDialog = true
     }
 
     mounted(): void {

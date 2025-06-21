@@ -1,11 +1,9 @@
 import axios from 'axios'
 import Vue from 'vue'
 
-
 const hostname = (import.meta.env.VUE_APP_HOSTNAME as string) || window.location.hostname
 const defaultPort = window.location.port || (window.location.protocol === 'https:' ? 443 : 80)
 const port = import.meta.env.VUE_APP_PORT ? Number(import.meta.env.VUE_APP_PORT) : Number(defaultPort)
-
 
 // 创建 axios 实例
 const service = axios.create({
@@ -28,6 +26,7 @@ service.interceptors.request.use(
         return Promise.reject(error)
     }
 )
+
 service.interceptors.response.use(
     response => {
         const res = response

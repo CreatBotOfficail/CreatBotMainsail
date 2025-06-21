@@ -6,7 +6,7 @@
                 <v-text-field v-model="password" label="password" type="password"
                     placeholder="please enter the password"></v-text-field>
             </v-card-text>
-            <v-card-actions class="justify-center" >
+            <v-card-actions class="justify-center">
                 <v-btn class="black" ton @click="goSocketLogin()" variant="tonal">login</v-btn>
             </v-card-actions>
         </panel>

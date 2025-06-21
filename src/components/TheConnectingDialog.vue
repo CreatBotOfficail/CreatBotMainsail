@@ -79,9 +79,9 @@ export default class TheConnectingDialog extends Mixins(BaseMixin, ThemeMixin) {
     }
 
     get showDialog() {
-     const connectionFailedMessage = this.$store.state.socket.connectionFailedMessage;
-     if (connectionFailedMessage === 'Unauthorized') { this.$emit('goLogin', 1);} 
-      return connectionFailedMessage !== 'Unauthorized';
+        const connectionFailedMessage = this.$store.state.socket.connectionFailedMessage;
+        if (connectionFailedMessage === 'Unauthorized') { this.$emit('goLogin', 1); }
+        return connectionFailedMessage !== 'Unauthorized';
     }
 
     get titleText() {
