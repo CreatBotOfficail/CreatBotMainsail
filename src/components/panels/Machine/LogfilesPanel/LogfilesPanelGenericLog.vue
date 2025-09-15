@@ -61,8 +61,7 @@ export default class LogfilesPanel extends Mixins(BaseMixin) {
         if ('href' in event.target.attributes) href = event.target.attributes.href.value
         if ('href' in event.target.parentElement.attributes) href = event.target.parentElement.attributes.href.value
 
-        // window.open(href)
-        this.$getDownloadLog(href)
+        window.open(href)
     }
 }
 </script>

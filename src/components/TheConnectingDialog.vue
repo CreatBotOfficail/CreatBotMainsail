@@ -1,5 +1,5 @@
 <template>
-    <v-dialog v-model="showDialog" persistent :width="450">
+    <v-dialog v-model="showDialog" persistent :width="400">
         <panel :title="titleText" :icon="mdiConnection" card-class="the-connection-dialog" :margin-bottom="false">
             <v-card-text v-if="connectingFailed" class="pt-5">
                 <connection-status :moonraker="false" />
@@ -79,9 +79,7 @@ export default class TheConnectingDialog extends Mixins(BaseMixin, ThemeMixin) {
     }
 
     get showDialog() {
-        const connectionFailedMessage = this.$store.state.socket.connectionFailedMessage;
-        if (connectionFailedMessage === 'Unauthorized') { this.$emit('goLogin', 1); }
-        return connectionFailedMessage !== 'Unauthorized';
+        return true
     }
 
     get titleText() {

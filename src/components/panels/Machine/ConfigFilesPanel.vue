@@ -1033,10 +1033,8 @@ export default class ConfigFilesPanel extends Mixins(BaseMixin, ThemeMixin) {
 
     downloadFile() {
         const filename = this.absolutePath + '/' + this.contextMenu.item.filename
-        // const href = `${this.apiUrl}/server/files${escapePath(filename)}`
-        // window.open(href)
-        const href = `/server/files${escapePath(filename)}`
-        this.$getDownloadZip(href, filename)
+        const href = `${this.apiUrl}/server/files${escapePath(filename)}`
+        window.open(href)
     }
 
     async downloadSelectedFiles() {

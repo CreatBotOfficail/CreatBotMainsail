@@ -23,14 +23,6 @@ export const getters: GetterTree<ServerUpdateManagerState, any> = {
             })
         })
 
-        state.zip_repos.forEach((repo) => {
-            output.push({
-                name: repo.name,
-                type: 'zip',
-                data: { ...repo },
-            })
-        })
-
         return caseInsensitiveSort(output, 'name')
     },
 }

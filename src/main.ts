@@ -37,15 +37,6 @@ import 'vue-resize/dist/vue-resize.css'
 import VueResize from 'vue-resize'
 import { defaultMode } from './store/variables'
 
-
-import axios from 'axios'
-import services from '@/utils/services'
-import { getDownloadLog, getDownloadZip } from '@/utils/tool'
-
-Vue.prototype.$services = services
-Vue.prototype.$getDownloadLog = getDownloadLog
-Vue.prototype.$getDownloadZip = getDownloadZip
-
 Vue.config.productionTip = false
 
 Vue.directive('observe-visibility', ObserveVisibility)
@@ -57,47 +48,6 @@ Vue.component('VueLoadImage', VueLoadImage)
 Vue.use(VueToast, {
     duration: 3000,
 })
-
-axios.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token');
-    if (token && !config.headers.Authorization) {
-        config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-}, error => {
-    return Promise.reject(error);
-});
-
-const originalFetch = window.fetch;
-window.fetch = async function (url, options: RequestInit = {}) {
-    try {
-        const token = localStorage.getItem('token');
-        if (token) {
-            if (!options.headers) {
-                options.headers = new Headers();
-            }
-            if (options.headers instanceof Headers) {
-                options.headers.set('Authorization', `Bearer ${token}`);
-            } else if (typeof options.headers === 'object' && !Array.isArray(options.headers)) {
-                (options.headers as Record<string, string>)['Authorization'] = `Bearer ${token}`;
-            } else {
-                const newHeaders = new Headers();
-                if (Array.isArray(options.headers)) {
-                    options.headers.forEach(([key, value]) => newHeaders.set(key, value));
-                } else {
-                    Object.entries(options.headers as Record<string, string>).forEach(([key, value]) => newHeaders.set(key, value));
-                }
-                newHeaders.set('Authorization', `Bearer ${token}`);
-                options.headers = newHeaders;
-            }
-        }
-        const response = await originalFetch.call(window, url, options);
-        return response;
-    } catch (error) {
-        console.error('Fetch error:', error);
-        return Promise.reject(error);
-    }
-};
 
 const isSafari = navigator.userAgent.includes('Safari') && navigator.userAgent.search('Chrome') === -1
 const isTouch = 'ontouchstart' in window || (navigator.maxTouchPoints > 0 && navigator.maxTouchPoints !== 256)
@@ -136,6 +86,10 @@ const initLoad = async () => {
         window.console.error('Failed to load config.json')
         window.console.error(e)
     }
+
+    const url = store.getters['socket/getWebsocketUrl']
+    Vue.use(WebSocketPlugin, { url, store })
+    if (store?.state?.instancesDB === 'moonraker') Vue.$socket.connect()
 }
 
 initLoad().then(() =>
@@ -144,13 +98,6 @@ initLoad().then(() =>
         router,
         store,
         i18n,
-        mounted() {
-            const url = this.$store.getters['socket/getWebsocketUrl'];
-            Vue.use(WebSocketPlugin, { url: url, store: this.$store });
-            if (this.$store?.state?.instancesDB === 'moonraker') {
-                Vue.$socket.connect();
-            }
-        },
         render: (h) => h(App),
     }).$mount('#app')
 )

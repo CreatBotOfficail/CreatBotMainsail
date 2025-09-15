@@ -12,7 +12,6 @@ export const getDefaultState = (): ServerUpdateManagerState => {
         github_limit_reset_time: null,
         git_repos: [],
         web_repos: [],
-        zip_repos: [],
         system: {
             package_count: 0,
             package_list: [],

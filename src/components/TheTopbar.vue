@@ -56,7 +56,6 @@
             <the-notification-menu />
             <the-settings-menu />
             <the-top-corner-menu />
-            <img class="outImg" v-if="TokenStatus" @click="dialog = true" src="../../public/img/icons/tuichu.png" />
         </v-app-bar>
         <v-snackbar v-model="uploadSnackbar.status" :timeout="-1" fixed right bottom>
             <strong>{{ $t('App.TopBar.Uploading') }} {{ uploadSnackbar.filename }}</strong>
@@ -71,17 +70,6 @@
             </template>
         </v-snackbar>
         <emergency-stop-dialog :show-dialog="showEmergencyStopDialog" @close="showEmergencyStopDialog = false" />
-        <v-dialog v-model="dialog" max-width="290">
-            <v-card color="#1e1e1e">
-                <v-card-title class="headings">logout</v-card-title>
-                <v-card-text style="color:#FFF">Are you sure you want to log out?</v-card-text>
-                <v-card-actions>
-                    <v-spacer />
-                    <v-btn text style="color: #E53935" @click="dialog = false">NO</v-btn>
-                    <v-btn text style="color: #43a047" @click="goLogot">YES</v-btn>
-                </v-card-actions>
-            </v-card>
-        </v-dialog>
     </div>
 </template>
 
@@ -226,10 +214,6 @@ export default class TheTopbar extends Mixins(BaseMixin, ThemeMixin) {
         return this.$store.state.gui?.uiSettings?.defaultNavigationStateSetting ?? 'alwaysOpen'
     }
 
-    get TokenStatus() {
-        return localStorage.getItem('token') ? true : false
-    }
-
     mounted() {
         //this.naviDrawer = this.$vuetify.breakpoint.lgAndUp
         switch (this.defaultNavigationStateSetting) {
@@ -244,16 +228,6 @@ export default class TheTopbar extends Mixins(BaseMixin, ThemeMixin) {
             default:
                 this.naviDrawer = this.$vuetify.breakpoint.lgAndUp
         }
-    }
-
-    dialog: boolean = false
-
-    goLogot() {
-        this.$socket.emitAndWait('access.logout').then(({ res }) => {
-            localStorage.removeItem('token')
-            this.$toast.success('logout successful', { position: 'top' })
-            window.location.reload()
-        })
     }
 
     btnEmergencyStop() {
@@ -373,10 +347,5 @@ export default class TheTopbar extends Mixins(BaseMixin, ThemeMixin) {
     header.topbar {
         z-index: 8 !important;
     }
-}
-.outImg {
-    width: 24px;
-    height: 24px;
-    margin: 12px;
 }
 </style>

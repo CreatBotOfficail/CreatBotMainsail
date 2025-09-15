@@ -21,14 +21,11 @@ export const actions: ActionTree<ServerState, RootState> = {
 
         // identify client
         try {
-            let token = localStorage.getItem('token')
-
             const connection = await Vue.$socket.emitAndWait('server.connection.identify', {
                 client_name: 'mainsail',
                 version: rootState.packageVersion,
                 type: 'web',
                 url: 'https://github.com/mainsail-crew/mainsail',
-                ...(token ? { access_token: token } : {})
             })
             commit('setConnectionId', connection.connection_id)
         } catch (e: any) {
@@ -36,8 +33,6 @@ export const actions: ActionTree<ServerState, RootState> = {
                 this.dispatch('socket/setConnectionFailed', e.message)
             }
 
-            if (e.code === 400 || e.message == 'JWT Expired') { localStorage.removeItem("token"); window.location.reload() }
-            Vue.prototype.$toast.error(e.message, { position: 'top' });
             window.console.error('Error while identifying client: ' + e.message)
             return
         }

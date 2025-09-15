@@ -5,7 +5,6 @@ export interface ServerUpdateManagerState {
     github_limit_reset_time: number | null
     git_repos: ServerUpdateManagerStateGitRepo[]
     web_repos: ServerUpdateManagerStateGitRepo[]
-    zip_repos: ServerUpdateManagerStateGitRepo[]
     system: {
         package_count: number
         package_list: string[]
@@ -68,6 +67,6 @@ export interface ServerUpdateManagerStateGitRepoGroupedCommits {
 
 export interface ServerUpdateManagerStateGuiList {
     name: string
-    type: 'git' | 'web' | 'zip'
+    type: 'git' | 'web'
     data: ServerUpdateManagerStateGitRepo
 }
