@@ -3,7 +3,7 @@
         <v-divider v-if="boolBorderTop" class="my-2" />
         <settings-row :title="webcam.name" :icon="icon" :sub-title="subtitle">
             <template v-if="webcam.source === 'database'||webcam.overwrite == true">
-                <v-btn v-if="webcam.overwrite !== true"
+                <v-btn v-if="webcam.source === 'database'"
                     class="minwidth-0 px-2"
                     small
                     outlined
@@ -15,12 +15,10 @@
                     <v-icon small left>{{ mdiPencil }}</v-icon>
                     {{ $t('Settings.Edit') }}
                 </v-btn>
-                <v-btn small outlined class="ml-3 minwidth-0 px-2" color="error" @click="deleteWebcam" v-if="webcam.overwrite !== true">
-                    <v-icon small>{{ mdiDelete }}</v-icon>
+                <v-btn small outlined class="ml-3 minwidth-0 px-2" color="error" @click="deleteWebcam" >
+                    <v-icon small>{{ webcam.overwrite ? mdiRestoreAlert : mdiDelete  }}</v-icon>
                 </v-btn>
-                 <v-btn small outlined class="ml-3 minwidth-0  px-2" color="error" @click="deleteWebcam" v-else >
-                    <v-icon small>{{ mdiRefresh }}</v-icon>
-                </v-btn>
+
             </template>
         </settings-row>
     </div>
@@ -31,7 +29,7 @@ import { Component, Mixins, Prop } from 'vue-property-decorator'
 import BaseMixin from '@/components/mixins/base'
 import SettingsRow from '@/components/settings/SettingsRow.vue'
 import { GuiWebcamStateWebcam } from '@/store/gui/webcams/types'
-import { mdiDelete, mdiPencil, mdiLightbulbOutline, mdiRefresh } from '@mdi/js'
+import { mdiDelete, mdiPencil, mdiLightbulbOutline, mdiRestoreAlert } from '@mdi/js'
 import WebcamMixin from '@/components/mixins/webcam'
 
 @Component({
@@ -42,7 +40,7 @@ import WebcamMixin from '@/components/mixins/webcam'
 export default class WebcamListEntry extends Mixins(BaseMixin, WebcamMixin) {
     mdiPencil = mdiPencil
     mdiDelete = mdiDelete
-    mdiRefresh = mdiRefresh
+    mdiRestoreAlert = mdiRestoreAlert
     mdiLightbulbOutline = mdiLightbulbOutline
 
     @Prop({ type: Object, default: () => {} }) private webcam!: GuiWebcamStateWebcam

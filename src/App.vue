@@ -20,7 +20,9 @@
             <the-macro-prompt />
         </template>
         <the-select-printer-dialog v-else-if="instancesDB !== 'moonraker'" />
-        <the-connecting-dialog v-else />
+        <the-connecting-dialog v-else/>
+        <openLogin ref="loginRef" />
+
     </v-app>
 </template>
 
@@ -45,6 +47,7 @@ import TheScrewsTiltAdjustDialog from '@/components/dialogs/TheScrewsTiltAdjustD
 import { setAndLoadLocale } from './plugins/i18n'
 import TheMacroPrompt from '@/components/dialogs/TheMacroPrompt.vue'
 import { AppRoute } from '@/routes'
+import openLogin from './components/login.vue'//引入登录组件
 
 Component.registerHooks(['metaInfo'])
 
@@ -63,6 +66,7 @@ Component.registerHooks(['metaInfo'])
         TheManualProbeDialog,
         TheBedScrewsDialog,
         TheScrewsTiltAdjustDialog,
+        openLogin
     },
 })
 export default class App extends Mixins(BaseMixin, ThemeMixin) {
@@ -390,7 +394,11 @@ export default class App extends Mixins(BaseMixin, ThemeMixin) {
             doc.style.setProperty('--app-height', window.innerHeight + 'px')
         })
     }
+    // 以下通过类型断言来解决该问题，同时需要确保 openLogin 组件有 `showDialog` 属性。
+    goLogins() {
 
+        (this.$refs.loginRef as InstanceType<typeof openLogin>).showDialog = true
+    }
     mounted(): void {
         this.drawFavicon(this.print_percent)
         this.appHeight()

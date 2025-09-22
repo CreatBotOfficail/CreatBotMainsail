@@ -10,52 +10,33 @@
             <v-toolbar-title class="text-no-wrap ml-0 pl-2 mr-2">{{ printerName }}</v-toolbar-title>
             <printer-selector v-if="countPrinters" />
             <v-spacer />
-            <input
-                ref="fileUploadAndStart"
-                type="file"
-                :accept="gcodeInputFileAccept.join(', ')"
-                style="display: none"
+            <input ref="fileUploadAndStart" type="file" :accept="gcodeInputFileAccept.join(', ')" style="display: none"
                 @change="uploadAndStart" />
-            <v-btn
-                v-if="showSaveConfigButton"
-                tile
-                :icon="$vuetify.breakpoint.smAndDown"
-                :text="$vuetify.breakpoint.mdAndUp"
-                color="primary"
-                class="button-min-width-auto px-3 d-none d-sm-flex save-config-button"
-                :disabled="printerIsPrinting"
-                :loading="loadings.includes('topbarSaveConfig')"
-                @click="saveConfig">
+            <v-btn v-if="showSaveConfigButton" tile :icon="$vuetify.breakpoint.smAndDown"
+                :text="$vuetify.breakpoint.mdAndUp" color="primary"
+                class="button-min-width-auto px-3 d-none d-sm-flex save-config-button" :disabled="printerIsPrinting"
+                :loading="loadings.includes('topbarSaveConfig')" @click="saveConfig">
                 <v-icon class="d-md-none">{{ mdiContentSave }}</v-icon>
                 <span class="d-none d-md-inline">{{ $t('App.TopBar.SAVE_CONFIG') }}</span>
             </v-btn>
-            <v-btn
-                v-if="boolShowUploadAndPrint"
-                tile
-                :icon="$vuetify.breakpoint.smAndDown"
-                :text="$vuetify.breakpoint.mdAndUp"
-                color="primary"
+            <v-btn v-if="boolShowUploadAndPrint" tile :icon="$vuetify.breakpoint.smAndDown"
+                :text="$vuetify.breakpoint.mdAndUp" color="primary"
                 class="button-min-width-auto px-3 d-none d-sm-flex upload-and-start-button"
-                :loading="loadings.includes('btnUploadAndStart')"
-                @click="btnUploadAndStart">
+                :loading="loadings.includes('btnUploadAndStart')" @click="btnUploadAndStart">
                 <v-icon class="mr-md-2">{{ mdiFileUpload }}</v-icon>
                 <span class="d-none d-md-inline">{{ $t('App.TopBar.UploadPrint') }}</span>
             </v-btn>
-            <v-btn
-                v-if="klippyIsConnected"
-                tile
-                :icon="$vuetify.breakpoint.smAndDown"
-                :text="$vuetify.breakpoint.mdAndUp"
-                color="error"
-                class="button-min-width-auto px-3 emergency-button"
-                :loading="loadings.includes('topbarEmergencyStop')"
-                @click="btnEmergencyStop">
+            <v-btn v-if="klippyIsConnected" tile :icon="$vuetify.breakpoint.smAndDown"
+                :text="$vuetify.breakpoint.mdAndUp" color="error" class="button-min-width-auto px-3 emergency-button"
+                :loading="loadings.includes('topbarEmergencyStop')" @click="btnEmergencyStop">
                 <v-icon class="mr-md-2">{{ mdiAlertOctagonOutline }}</v-icon>
                 <span class="d-none d-md-inline">{{ $t('App.TopBar.EmergencyStop') }}</span>
             </v-btn>
             <the-notification-menu />
             <the-settings-menu />
             <the-top-corner-menu />
+            <!-- 增加退出 -->
+            <logOut />
         </v-app-bar>
         <v-snackbar v-model="uploadSnackbar.status" :timeout="-1" fixed right bottom>
             <strong>{{ $t('App.TopBar.Uploading') }} {{ uploadSnackbar.filename }}</strong>
@@ -91,6 +72,7 @@ import { mdiAlertOctagonOutline, mdiContentSave, mdiFileUpload, mdiClose, mdiClo
 import EmergencyStopDialog from '@/components/dialogs/EmergencyStopDialog.vue'
 import InlineSvg from 'vue-inline-svg'
 import ThemeMixin from '@/components/mixins/theme'
+import logOut from '@/components/logOut.vue'
 
 type uploadSnackbar = {
     status: boolean
@@ -111,6 +93,7 @@ type uploadSnackbar = {
         PrinterSelector,
         MainsailLogo,
         TheNotificationMenu,
+        logOut,
     },
 })
 export default class TheTopbar extends Mixins(BaseMixin, ThemeMixin) {
@@ -315,6 +298,8 @@ export default class TheTopbar extends Mixins(BaseMixin, ThemeMixin) {
         this.uploadSnackbar.cancelTokenSource.cancel()
         this.uploadSnackbar.status = false
     }
+
+
 }
 </script>
 
@@ -328,20 +313,24 @@ export default class TheTopbar extends Mixins(BaseMixin, ThemeMixin) {
 .button-min-width-auto {
     min-width: auto !important;
 }
+
 /*noinspection CssUnusedSymbol*/
 .topbar .v-btn {
     height: 100% !important;
     max-height: none;
 }
+
 ::v-deep .topbar .nav-logo {
     width: auto;
     height: 32px;
 }
+
 /*noinspection CssUnusedSymbol*/
 .topbar .v-btn.v-btn--icon {
     /*noinspection CssUnresolvedCustomProperty*/
     width: var(--topbar-icon-btn-width) !important;
 }
+
 /*noinspection CssUnusedSymbol*/
 @media (min-width: 768px) {
     header.topbar {

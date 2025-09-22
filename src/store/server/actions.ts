@@ -10,7 +10,6 @@ export const actions: ActionTree<ServerState, RootState> = {
     reset({ commit, dispatch }) {
         dispatch('stopKlippyConnectedInterval')
         dispatch('stopKlippyStateInterval')
-
         commit('reset')
         dispatch('power/reset')
         dispatch('updateManager/reset')
@@ -30,7 +29,9 @@ export const actions: ActionTree<ServerState, RootState> = {
             commit('setConnectionId', connection.connection_id)
         } catch (e: any) {
             if (e.message === 'Unauthorized') {
-                this.dispatch('socket/setConnectionFailed', e.message)
+                console.log('触发了权限报错,打开登录弹窗', e.message)
+                commit('setLogin', true)
+                console.log('登录弹窗状态', rootState.server?.isLogin)
             }
 
             window.console.error('Error while identifying client: ' + e.message)

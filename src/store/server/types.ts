@@ -4,6 +4,7 @@ import { ServerHistoryState } from '@/store/server/history/types'
 import { ServerTimelapseState } from '@/store/server/timelapse/types'
 
 export interface ServerState {
+    isLogin: boolean
     klippy_connected: boolean
     klippy_connected_timer: number | null
     klippy_state: string

@@ -175,6 +175,7 @@ export const actions: ActionTree<SocketState, RootState> = {
     },
 
     setConnectionFailed({ commit }, payload) {
+        console.log('触发了连接失败', payload)
         commit('setDisconnected', payload)
     },
 }

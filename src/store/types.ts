@@ -16,6 +16,7 @@ export interface RootState {
     printer?: PrinterState
     server?: ServerState
     editor?: EditorState
+    isLogin?: boolean //登录弹窗
 }
 
 export interface RootStateDependency {

@@ -6,6 +6,9 @@ import { formatConsoleMessage } from '@/plugins/helpers'
 import { maxEventHistory } from '@/store/variables'
 
 export const mutations: MutationTree<ServerState> = {
+    setLogin(state, payload) {
+        Vue.set(state, 'isLogin', payload)
+    },
     reset(state) {
         Object.assign(state, getDefaultState())
     },

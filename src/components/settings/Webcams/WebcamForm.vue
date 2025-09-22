@@ -43,11 +43,11 @@
                             <v-text-field
                                 v-model="webcam.name"
                                 :label="$t('Settings.WebcamsTab.Name')"
+                                :disabled="webcam.overwrite === true"
                                 hide-details="auto"
                                 outlined
                                 :rules="[rules.required, rules.unique]"
                                 class="_webcam-settings-name-field"
-                                :disabled="webcam.overwrite === true"
                                 dense />
                         </v-col>
                     </v-row>
@@ -56,10 +56,11 @@
                             <v-text-field
                                 v-model="webcam.stream_url"
                                 :label="$t('Settings.WebcamsTab.UrlStream')"
+                                :disabled="webcam.overwrite === true"
                                 hide-details="auto"
                                 outlined
                                 dense
-                                :rules="rulesStreamUrl" :disabled="webcam.overwrite === true" />
+                                :rules="rulesStreamUrl" />
                         </v-col>
                     </v-row>
                     <v-row>
@@ -67,11 +68,11 @@
                             <v-text-field
                                 v-model="webcam.snapshot_url"
                                 :label="$t('Settings.WebcamsTab.UrlSnapshot')"
+                                :disabled="webcam.overwrite === true"
                                 hide-details="auto"
                                 outlined
                                 dense
                                 :rules="rulesSnapshotUrl"
-                                :disabled="webcam.overwrite === true"
                                 />
                         </v-col>
                     </v-row>
@@ -79,12 +80,12 @@
                         <v-col class="py-2">
                             <v-select
                                 v-model="webcam.service"
+                                :disabled="webcam.overwrite === true"
                                 :items="serviceItems"
                                 hide-details
                                 outlined
                                 dense
                                 :label="$t('Settings.WebcamsTab.Service')"
-                                :disabled="webcam.overwrite === true"
                                  />
                         </v-col>
                     </v-row>
@@ -92,41 +93,41 @@
                         <v-col class="py-2 col-6">
                             <v-text-field
                                 v-model="webcam.target_fps"
+                                :disabled="webcam.overwrite === true"
                                 outlined
                                 dense
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.TargetFPS')"
-                                :disabled="webcam.overwrite === true" />
+                                :label="$t('Settings.WebcamsTab.TargetFPS')" />
                         </v-col>
                         <v-col class="py-2 col-6">
                             <v-select
                                 v-model="webcam.rotation"
+                                :disabled="webcam.overwrite === true"
                                 :items="rotationItems"
                                 outlined
                                 dense
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.Rotate')"
-                                :disabled="webcam.overwrite === true" />
+                                :label="$t('Settings.WebcamsTab.Rotate')" />
                         </v-col>
                     </v-row>
                     <v-row v-if="hasFpsCounter">
                         <v-col class="pt-1 pb-3">
                             <v-checkbox
                                 v-model="hideFps"
+                                :disabled="webcam.overwrite === true"
                                 class="mt-1"
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.HideFps')"
-                                :disabled="webcam.overwrite === true" />
+                                :label="$t('Settings.WebcamsTab.HideFps')" />
                         </v-col>
                     </v-row>
                     <v-row v-if="hasAudioOption">
                         <v-col class="pt-1 pb-3">
                             <v-checkbox
                                 v-model="enableAudio"
+                                :disabled="webcam.overwrite === true"
                                 class="mt-1"
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.EnableAudio')"
-                                :disabled="webcam.overwrite === true" />
+                                :label="$t('Settings.WebcamsTab.EnableAudio')" />
                         </v-col>
                     </v-row>
                     <v-row>
@@ -142,15 +143,14 @@
                                 v-model="webcam.flip_horizontal"
                                 class="mt-1"
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.Horizontally')"
-                                 />
+                                :label="$t('Settings.WebcamsTab.Horizontally')" />
                         </v-col>
                         <v-col class="py-0">
                             <v-checkbox
                                 v-model="webcam.flip_vertical"
                                 class="mt-1"
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.Vertically')"/>
+                                :label="$t('Settings.WebcamsTab.Vertically')" />
                         </v-col>
                     </v-row>
                     <template v-if="nozzleCrosshairAvialable">
@@ -165,16 +165,17 @@
                             <v-col class="py-0">
                                 <v-checkbox
                                     v-model="nozzleCrosshair"
+                                    :disabled="webcam.overwrite === true"
                                     class="mt-1"
                                     hide-details
-                                    :label="$t('Settings.WebcamsTab.Enable')"
-                                    :disabled="webcam.overwrite === true" />
+                                    :label="$t('Settings.WebcamsTab.Enable')" />
                             </v-col>
                             <v-col v-if="nozzleCrosshair" class="py-0">
                                 <v-menu bottom left offset-y :close-on-content-click="false">
                                     <template #activator="{ on, attrs }">
                                         <v-btn
                                             v-bind="attrs"
+                                            :disabled="webcam.overwrite === true"
                                             :color="nozzleCrosshairColor"
                                             class="minwidth-0 px-5"
                                             small
@@ -195,14 +196,14 @@
                             <v-col>
                                 <v-slider
                                     v-model="nozzleCrosshairSize"
+                                    :disabled="webcam.overwrite === true"
                                     :max="1"
                                     :min="0.01"
                                     :step="0.01"
                                     thumb-label
                                     thumb-size="24"
                                     hide-details
-                                    :label="$t('Settings.WebcamsTab.Size')"
-                                    :disabled="webcam.overwrite === true" />
+                                    :label="$t('Settings.WebcamsTab.Size')" />
                             </v-col>
                         </v-row>
                     </template>

@@ -2,8 +2,8 @@
     "defaultLocale": "en",
     "defaultMode": "dark",
     "defaultTheme": "mainsail",
-    "hostname": null,
-    "port": null,
+    "hostname": "d600pro2hs-d7e7.lan",
+    "port": 7125,
     "path": null,
     "instancesDB": "moonraker",
     "instances": []

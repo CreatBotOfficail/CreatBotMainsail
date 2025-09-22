@@ -81,7 +81,7 @@ All notable changes to Mainsail will be documented in this file.
 - **StatusPanel**: Add option to show history in StatusPanel ([#2055](https://github.com/mainsail-crew/mainsail/pull/2055))
 - **Webcam**: Add a optional overlay for IDEX calibration ([#2053](https://github.com/mainsail-crew/mainsail/pull/2053))
 - **console**: Add debug prefix ([#1973](https://github.com/mainsail-crew/mainsail/pull/1973))
-- **console**: Add option for RAW-output (for debugging) ([#1975](https://github.com/mainsail-crew/mainsail/pull/1975))
+- **console**: Add option for RAW-output (for d ebugging) ([#1975](https://github.com/mainsail-crew/mainsail/pull/1975))
 - **spoolman**: Add multi tool support ([#1946](https://github.com/mainsail-crew/mainsail/pull/1946))
 - **theme**: Add option for dedicated CSS file per theme ([#1958](https://github.com/mainsail-crew/mainsail/pull/1958))
 - **updateManager**: Use info_tag desc for the name ([#1959](https://github.com/mainsail-crew/mainsail/pull/1959))
