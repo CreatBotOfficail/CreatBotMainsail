@@ -47,6 +47,7 @@
                                 outlined
                                 :rules="[rules.required, rules.unique]"
                                 class="_webcam-settings-name-field"
+                                :disabled="webcam.overwrite === true"
                                 dense />
                         </v-col>
                     </v-row>
@@ -58,7 +59,7 @@
                                 hide-details="auto"
                                 outlined
                                 dense
-                                :rules="rulesStreamUrl" />
+                                :rules="rulesStreamUrl" :disabled="webcam.overwrite === true" />
                         </v-col>
                     </v-row>
                     <v-row>
@@ -69,7 +70,9 @@
                                 hide-details="auto"
                                 outlined
                                 dense
-                                :rules="rulesSnapshotUrl" />
+                                :rules="rulesSnapshotUrl"
+                                :disabled="webcam.overwrite === true"
+                                />
                         </v-col>
                     </v-row>
                     <v-row>
@@ -80,7 +83,9 @@
                                 hide-details
                                 outlined
                                 dense
-                                :label="$t('Settings.WebcamsTab.Service')" />
+                                :label="$t('Settings.WebcamsTab.Service')"
+                                :disabled="webcam.overwrite === true"
+                                 />
                         </v-col>
                     </v-row>
                     <v-row v-if="['mjpegstreamer-adaptive', 'jmuxer-stream'].includes(webcam.service)">
@@ -90,7 +95,8 @@
                                 outlined
                                 dense
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.TargetFPS')" />
+                                :label="$t('Settings.WebcamsTab.TargetFPS')"
+                                :disabled="webcam.overwrite === true" />
                         </v-col>
                         <v-col class="py-2 col-6">
                             <v-select
@@ -99,7 +105,8 @@
                                 outlined
                                 dense
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.Rotate')" />
+                                :label="$t('Settings.WebcamsTab.Rotate')"
+                                :disabled="webcam.overwrite === true" />
                         </v-col>
                     </v-row>
                     <v-row v-if="hasFpsCounter">
@@ -108,7 +115,8 @@
                                 v-model="hideFps"
                                 class="mt-1"
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.HideFps')" />
+                                :label="$t('Settings.WebcamsTab.HideFps')"
+                                :disabled="webcam.overwrite === true" />
                         </v-col>
                     </v-row>
                     <v-row v-if="hasAudioOption">
@@ -117,7 +125,8 @@
                                 v-model="enableAudio"
                                 class="mt-1"
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.EnableAudio')" />
+                                :label="$t('Settings.WebcamsTab.EnableAudio')"
+                                :disabled="webcam.overwrite === true" />
                         </v-col>
                     </v-row>
                     <v-row>
@@ -133,14 +142,15 @@
                                 v-model="webcam.flip_horizontal"
                                 class="mt-1"
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.Horizontally')" />
+                                :label="$t('Settings.WebcamsTab.Horizontally')"
+                                 />
                         </v-col>
                         <v-col class="py-0">
                             <v-checkbox
                                 v-model="webcam.flip_vertical"
                                 class="mt-1"
                                 hide-details
-                                :label="$t('Settings.WebcamsTab.Vertically')" />
+                                :label="$t('Settings.WebcamsTab.Vertically')"/>
                         </v-col>
                     </v-row>
                     <template v-if="nozzleCrosshairAvialable">
@@ -157,7 +167,8 @@
                                     v-model="nozzleCrosshair"
                                     class="mt-1"
                                     hide-details
-                                    :label="$t('Settings.WebcamsTab.Enable')" />
+                                    :label="$t('Settings.WebcamsTab.Enable')"
+                                    :disabled="webcam.overwrite === true" />
                             </v-col>
                             <v-col v-if="nozzleCrosshair" class="py-0">
                                 <v-menu bottom left offset-y :close-on-content-click="false">
@@ -190,7 +201,8 @@
                                     thumb-label
                                     thumb-size="24"
                                     hide-details
-                                    :label="$t('Settings.WebcamsTab.Size')" />
+                                    :label="$t('Settings.WebcamsTab.Size')"
+                                    :disabled="webcam.overwrite === true" />
                             </v-col>
                         </v-row>
                     </template>
