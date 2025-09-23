@@ -43,6 +43,7 @@
                             <v-text-field
                                 v-model="webcam.name"
                                 :label="$t('Settings.WebcamsTab.Name')"
+                                :disabled="webcam.overwrite === true"
                                 hide-details="auto"
                                 outlined
                                 :rules="[rules.required, rules.unique]"
@@ -55,6 +56,7 @@
                             <v-text-field
                                 v-model="webcam.stream_url"
                                 :label="$t('Settings.WebcamsTab.UrlStream')"
+                                :disabled="webcam.overwrite === true"
                                 hide-details="auto"
                                 outlined
                                 dense
@@ -66,6 +68,7 @@
                             <v-text-field
                                 v-model="webcam.snapshot_url"
                                 :label="$t('Settings.WebcamsTab.UrlSnapshot')"
+                                :disabled="webcam.overwrite === true"
                                 hide-details="auto"
                                 outlined
                                 dense
@@ -76,6 +79,7 @@
                         <v-col class="py-2">
                             <v-select
                                 v-model="webcam.service"
+                                :disabled="webcam.overwrite === true"
                                 :items="serviceItems"
                                 hide-details
                                 outlined
@@ -87,6 +91,7 @@
                         <v-col class="py-2 col-6">
                             <v-text-field
                                 v-model="webcam.target_fps"
+                                :disabled="webcam.overwrite === true"
                                 outlined
                                 dense
                                 hide-details
@@ -95,6 +100,7 @@
                         <v-col class="py-2 col-6">
                             <v-select
                                 v-model="webcam.rotation"
+                                :disabled="webcam.overwrite === true"
                                 :items="rotationItems"
                                 outlined
                                 dense
@@ -106,6 +112,7 @@
                         <v-col class="pt-1 pb-3">
                             <v-checkbox
                                 v-model="hideFps"
+                                :disabled="webcam.overwrite === true"
                                 class="mt-1"
                                 hide-details
                                 :label="$t('Settings.WebcamsTab.HideFps')" />
@@ -115,6 +122,7 @@
                         <v-col class="pt-1 pb-3">
                             <v-checkbox
                                 v-model="enableAudio"
+                                :disabled="webcam.overwrite === true"
                                 class="mt-1"
                                 hide-details
                                 :label="$t('Settings.WebcamsTab.EnableAudio')" />
@@ -155,6 +163,7 @@
                             <v-col class="py-0">
                                 <v-checkbox
                                     v-model="nozzleCrosshair"
+                                    :disabled="webcam.overwrite === true"
                                     class="mt-1"
                                     hide-details
                                     :label="$t('Settings.WebcamsTab.Enable')" />
@@ -164,6 +173,7 @@
                                     <template #activator="{ on, attrs }">
                                         <v-btn
                                             v-bind="attrs"
+                                            :disabled="webcam.overwrite === true"
                                             :color="nozzleCrosshairColor"
                                             class="minwidth-0 px-5"
                                             small
@@ -184,6 +194,7 @@
                             <v-col>
                                 <v-slider
                                     v-model="nozzleCrosshairSize"
+                                    :disabled="webcam.overwrite === true"
                                     :max="1"
                                     :min="0.01"
                                     :step="0.01"
