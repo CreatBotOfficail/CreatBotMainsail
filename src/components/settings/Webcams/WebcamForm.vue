@@ -72,8 +72,7 @@
                                 hide-details="auto"
                                 outlined
                                 dense
-                                :rules="rulesSnapshotUrl"
-                                />
+                                :rules="rulesSnapshotUrl" />
                         </v-col>
                     </v-row>
                     <v-row>
@@ -85,8 +84,7 @@
                                 hide-details
                                 outlined
                                 dense
-                                :label="$t('Settings.WebcamsTab.Service')"
-                                 />
+                                :label="$t('Settings.WebcamsTab.Service')" />
                         </v-col>
                     </v-row>
                     <v-row v-if="['mjpegstreamer-adaptive', 'jmuxer-stream'].includes(webcam.service)">
