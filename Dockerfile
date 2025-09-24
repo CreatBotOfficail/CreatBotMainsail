@@ -21,3 +21,13 @@ FROM nginx:stable-alpine as runner
 
 COPY --from=builder /app/.docker/nginx.conf  /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist/ /usr/share/nginx/html/
+
+#
+# export to host
+# USE: docker build --output type=local,dest=./dist .
+# 
+
+FROM scratch AS export
+
+COPY --from=builder /app/dist/mainsail.zip /
+
