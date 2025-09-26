@@ -2,7 +2,7 @@
     "defaultLocale": "en",
     "defaultMode": "dark",
     "defaultTheme": "mainsail",
-    "hostname": "d600pro2hs-d7e7.lan",
+    "hostname": "pitest",
     "port": 7125,
     "path": null,
     "instancesDB": "moonraker",

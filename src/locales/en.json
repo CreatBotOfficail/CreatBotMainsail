@@ -474,6 +474,16 @@
         "Start": "Start",
         "StartPrint": "Start Job"
     },
+    "loginText": {
+        "confirmPassword": "Confirm password",
+        "editPassword": "Change password",
+        "login":"Login",
+        "logOut": "Log out",
+        "newPassword": "New password",
+        "oldPassword": "Old password",
+        "passwordPlaceholder":"Please enter the password",
+        "tip":"You need to log in first"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "All",
@@ -1390,5 +1400,5 @@
         "Variable": "Variable",
         "Video": "Video"
     },
-    "title": "English"
+    "title": "English"    
 }

@@ -389,6 +389,16 @@
         "RemoveFromQueue": "Remover da fila",
         "Start": "Começar"
     },
+    "loginText": {
+        "confirmPassword": "Confirmar senha",
+        "editPassword": "Alterar senha",
+        "login":"Login",
+        "logOut": "Sair",
+        "newPassword": "Nova senha",
+        "oldPassword": "Senha antiga",
+        "passwordPlaceholder":"Digite a senha",
+        "tip":"Você precisa fazer login primeiro"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Todos",

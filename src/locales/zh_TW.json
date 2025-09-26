@@ -400,6 +400,16 @@
         "RemoveFromQueue": "從隊列中刪除",
         "Start": "開始"
     },
+    "loginText": {
+        "confirmPassword": "確認密碼",
+        "editPassword": "編輯密碼",
+        "login":"登錄",
+        "logOut": "登出",
+        "newPassword": "新密碼",
+        "oldPassword": "舊密碼",
+        "passwordPlaceholder":"輸入密碼",
+        "tip":"您需要先登錄才能進行此操作"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "所有",

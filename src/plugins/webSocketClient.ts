@@ -121,11 +121,14 @@ export class WebSocketClient {
 
         this.instance.onmessage = (msg) => {
             if (this.store === null) return
-
+            const data = JSON.parse(msg.data);
+            const errorMsg = data.error?.message;
+            if (['Unauthorized', 'Invalid Password'].includes(errorMsg)) {
+                _Vue.$toast.error(errorMsg);
+            } else {
+                this.heartbeat();
+            }
             // websocket is alive
-            this.heartbeat()
-
-            const data = JSON.parse(msg.data)
             if (Array.isArray(data)) {
                 for (const message of data) {
                     this.handleMessage(message)

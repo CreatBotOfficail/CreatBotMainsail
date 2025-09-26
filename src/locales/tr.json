@@ -400,6 +400,16 @@
         "RemoveFromQueue": "Kuyruktan Kaldır",
         "Start": "Başla"
     },
+    "loginText": {
+        "confirmPassword": "Şifreyi onayla",
+        "editPassword": "Şifreyi değiştir",
+        "login":"Oturum aç",
+        "logOut": "Çıkış yap",
+        "newPassword": "Yeni şifre",
+        "oldPassword": "Eski şifre",
+        "passwordPlaceholder":"Şifre girin",
+        "tip":"Lütfen önce oturum açın"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Hepsi",

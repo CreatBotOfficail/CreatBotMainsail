@@ -442,6 +442,16 @@
         "RemoveFromQueue": "Verwijder uit wachtrij",
         "Start": "Start"
     },
+    "loginText": {
+        "confirmPassword": "Bevestig wachtwoord",
+        "editPassword": "Wachtwoord wijzigen",
+        "login":"Inloggen",
+        "logOut": "Uitloggen",
+        "newPassword": "Nieuw wachtwoord",
+        "oldPassword": "Oud wachtwoord",
+        "passwordPlaceholder":"Voer het wachtwoord in",
+        "tip":"U moet eerst inloggen"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Alle",

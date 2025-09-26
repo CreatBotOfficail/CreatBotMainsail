@@ -475,6 +475,16 @@
         "Start": "开始",
         "StartPrint": "开始任务"
     },
+    "loginText":{
+        "confirmPassword":"确认密码",
+        "editPassword":"修改密码",
+        "login":"登录",
+        "logOut":"退出登录",
+        "newPassword":"新密码",
+        "oldPassword":"旧密码",
+        "passwordPlaceholder":"请输入密码",
+        "tip":"您需要先登录"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "全部",
@@ -1389,4 +1399,5 @@
         "Video": "视频"
     },
     "title": "简体中文"
+    
 }

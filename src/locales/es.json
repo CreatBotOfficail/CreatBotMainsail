@@ -483,6 +483,16 @@
         "Start": "Iniciar",
         "StartPrint": "Iniciar tarea"
     },
+    "loginText": {
+       "confirmPassword": "Confirmar contraseña",
+       "editPassword": "Cambiar contraseña",
+       "login":"Login",
+       "logOut": "Cerrar sesión",
+       "newPassword": "Nueva contraseña",
+       "oldPassword": "Contraseña anterior",
+       "passwordPlaceholder":"Please enter the password",
+       "tip":"You need to log in first"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Todos",
@@ -1385,5 +1395,5 @@
         "Variable": "Variable",
         "Video": "Video"
     },
-    "title": "Español"
+    "title": "Español"    
 }

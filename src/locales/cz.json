@@ -384,6 +384,16 @@
         "RemoveFromQueue": "Odebrat z fronty",
         "Start": "Spustit"
     },
+    "loginText": {
+        "confirmPassword": "Potvrďte heslo",
+        "editPassword": "Změnit heslo",
+        "login":"Login",
+        "logOut": "Odhlásit se",
+        "newPassword": "Nové heslo",
+        "oldPassword": "Staré heslo",
+        "passwordPlaceholder":"Please enter the password",
+        "tip":"You need to log in first"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Vše",
@@ -1130,5 +1140,5 @@
         "Variable": "Proměnný",
         "Video": "Video"
     },
-    "title": "Čeština"
+    "title": "Čeština"    
 }

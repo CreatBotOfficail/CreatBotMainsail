@@ -474,6 +474,16 @@
         "Start": "Запустить",
         "StartPrint": "Запустить задание"
     },
+    "loginText": {
+        "confirmPassword": "Подтвердите пароль",
+        "editPassword": "Изменить пароль",
+        "login":"Войти",
+        "logOut": "Выйти",
+        "newPassword": "Новый пароль",
+        "oldPassword": "Старый пароль",
+        "passwordPlaceholder":"Введите пароль",
+        "tip":"Вам необходимо войти в систему"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Все",

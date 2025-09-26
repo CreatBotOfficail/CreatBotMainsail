@@ -465,6 +465,16 @@
         "Start": "Start",
         "StartPrint": "Start job"
     },
+    "loginText": {
+       "confirmPassword": "Bekræft adgangskode",
+       "editPassword": "Rediger adgangskode",
+       "login":"Login",
+       "logOut": "Log ud",
+       "newPassword": "Ny adgangskode",
+       "oldPassword": "Gammel adgangskode",
+       "passwordPlaceholder":"Indtast adgangskode",
+       "tip":"Du skal logge ind først"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Alle",
@@ -1345,5 +1355,5 @@
         "Variable": "Variabel",
         "Video": "Video"
     },
-    "title": "Dansk"
+    "title": "Dansk"    
 }

@@ -385,6 +385,16 @@
         "RemoveFromQueue": "대기열에서 삭제",
         "Start": "시작"
     },
+    "loginText": {
+        "confirmPassword": "비밀번호 확인",
+        "editPassword": "비밀번호 변경",
+        "login":"로그인",
+        "logOut": "로그아웃",
+        "newPassword": "새 비밀번호",
+        "oldPassword": "기존 비밀번호",
+        "passwordPlaceholder":"비밀번호를 입력하세요",
+        "tip":"로그인이 필요합니다"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "전체",

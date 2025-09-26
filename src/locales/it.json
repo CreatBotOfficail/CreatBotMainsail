@@ -474,6 +474,16 @@
         "Start": "Inizia",
         "StartPrint": "Comincia Lavoro"
     },
+    "loginText": {
+        "confirmPassword": "Conferma password",
+        "editPassword": "Modifica password",
+        "login":"Login",
+        "logOut": "Esci",
+        "newPassword": "Nuova password",
+        "oldPassword": "Vecchia password",
+        "passwordPlaceholder":"Please enter the password",
+        "tip":"You need to log in first"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Tutti",

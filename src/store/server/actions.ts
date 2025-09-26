@@ -29,11 +29,8 @@ export const actions: ActionTree<ServerState, RootState> = {
             commit('setConnectionId', connection.connection_id)
         } catch (e: any) {
             if (e.message === 'Unauthorized') {
-                console.log('触发了权限报错,打开登录弹窗', e.message)
                 commit('setLogin', true)
-                console.log('登录弹窗状态', rootState.server?.isLogin)
             }
-
             window.console.error('Error while identifying client: ' + e.message)
             return
         }

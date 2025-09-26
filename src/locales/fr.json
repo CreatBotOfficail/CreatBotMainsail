@@ -416,6 +416,16 @@
         "RemoveFromQueue": "Retirer de la file d'attente",
         "Start": "Démarrage"
     },
+    "loginText": {
+        "confirmPassword": "Confirmer le mot de passe",
+        "editPassword": "Modifier le mot de passe",
+        "login":"Login",
+        "logOut": "Se déconnecter",
+        "newPassword": "Nouveau mot de passe",
+        "oldPassword": "Ancien mot de passe",
+        "passwordPlaceholder":"Please enter the password",
+        "tip":"You need to log in first"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Tous",
@@ -1262,5 +1272,5 @@
         "Variable": "Variable",
         "Video": "Vidéo"
     },
-    "title": "Français"
+    "title": "Français"    
 }

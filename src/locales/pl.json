@@ -399,6 +399,16 @@
         "RemoveFromQueue": "Usuń z kolejki",
         "Start": "Start"
     },
+    "loginText": {
+        "confirmPassword": "Potwierdź hasło",
+        "editPassword": "Zmień hasło",
+        "login":"Zaloguj się",
+        "logOut": "Wyloguj się",
+        "newPassword": "Nowe hasło",
+        "oldPassword": "Stare hasło",
+        "passwordPlaceholder":"Wprowadź hasło",
+        "tip":"Musisz się zalogować"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Wszystkie",

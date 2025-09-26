@@ -394,9 +394,8 @@ export default class App extends Mixins(BaseMixin, ThemeMixin) {
             doc.style.setProperty('--app-height', window.innerHeight + 'px')
         })
     }
-    // 以下通过类型断言来解决该问题，同时需要确保 openLogin 组件有 `showDialog` 属性。
-    goLogins() {
 
+    goLogins() {
         (this.$refs.loginRef as InstanceType<typeof openLogin>).showDialog = true
     }
     mounted(): void {

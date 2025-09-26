@@ -482,6 +482,16 @@
         "Start": "Start",
         "StartPrint": "Munkakezdés"
     },
+    "loginText": {
+        "confirmPassword": "Jelszó megerősítése",
+        "editPassword": "Jelszó módosítása",
+        "login":"Login",
+        "logOut": "Kijelentkezés",
+        "newPassword": "Új jelszó",
+        "oldPassword": "Régi jelszó",
+        "passwordPlaceholder":"Please enter the password",
+        "tip":"You need to log in first"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Mind",

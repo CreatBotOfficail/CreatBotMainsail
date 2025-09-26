@@ -403,6 +403,16 @@
         "RemoveFromQueue": "Ta bort från kö",
         "Start": "Starta"
     },
+    "loginText": {
+        "confirmPassword": "Bekräfta lösenord",
+        "editPassword": "Ändra lösenord",
+        "login":"Logga in",
+        "logOut": "Logga ut",
+        "newPassword": "Nytt lösenord",
+        "oldPassword": "Gammalt lösenord",
+        "passwordPlaceholder":"Ange lösenord",
+        "tip":"Du måste logga in först"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Alla",

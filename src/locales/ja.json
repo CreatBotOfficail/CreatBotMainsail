@@ -384,6 +384,16 @@
         "RemoveFromQueue": "キューから削除",
         "Start": "開始"
     },
+    "loginText": {
+        "confirmPassword": "パスワードの確認",
+        "editPassword": "パスワードの変更",
+        "login":"ログイン",
+        "logOut": "ログアウト",
+        "newPassword": "新しいパスワード",
+        "oldPassword": "古いパスワード",
+        "passwordPlaceholder":"パスワードを入力してください",
+        "tip":"最初にログインする必要があります"
+    },
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "すべてのファイル",
