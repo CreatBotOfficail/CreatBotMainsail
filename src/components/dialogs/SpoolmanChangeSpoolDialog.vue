@@ -36,6 +36,7 @@
                     <v-icon>{{ mdiRefresh }}</v-icon>
                 </v-btn>
                 <v-btn
+                    v-if="spoolManagerUrl"
                     :title="$t('Panels.SpoolmanPanel.OpenSpoolManager')"
                     class="px-2 minwidth-0 ml-3"
                     @click="openSpoolManager">
@@ -141,10 +142,6 @@ export default class SpoolmanChangeSpoolDialog extends Mixins(BaseMixin) {
         ]
     }
 
-    get spoolManagerUrl() {
-        return this.$store.state.server.config.config?.spoolman?.server ?? null
-    }
-
     get existsSaveVariables() {
         const settings = this.$store.state.printer.configfile?.settings ?? {}
 
@@ -153,10 +150,6 @@ export default class SpoolmanChangeSpoolDialog extends Mixins(BaseMixin) {
 
     openSpoolManager() {
         window.open(this.spoolManagerUrl, '_blank')
-    }
-
-    mounted() {
-        this.refresh()
     }
 
     refresh() {
@@ -249,7 +242,10 @@ export default class SpoolmanChangeSpoolDialog extends Mixins(BaseMixin) {
 
     @Watch('showDialog')
     onShowDialogChanged(newVal: boolean) {
-        if (newVal) this.search = ''
+        if (!newVal) return
+
+        this.refresh()
+        this.search = ''
     }
 }
 </script>

@@ -12,7 +12,7 @@ RUN npm ci
 
 COPY ./ /app/
 
-RUN npm run build && rm /app/dist/mainsail.zip
+RUN npm run build
 
 # set port to >1024 port for non root running
 RUN sed 's/80/8080/g' .docker/nginx.conf > .docker/nginx.conf.unprivileged
@@ -26,6 +26,7 @@ USER root
 RUN rm -rf /usr/share/nginx/html/*
 COPY --link --from=builder /app/.docker/nginx.conf.unprivileged  /etc/nginx/conf.d/default.conf
 COPY --link --from=builder /app/dist/ /usr/share/nginx/html/
+COPY --chmod=755 --link --from=builder /app/.docker/00-remove-ipv6-if-unavailable.sh /docker-entrypoint.d/
 
 USER nginx
 
@@ -37,6 +38,7 @@ FROM nginx:stable-alpine AS runner
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /app/.docker/nginx.conf  /etc/nginx/conf.d/default.conf
 COPY --from=builder /app/dist/ /usr/share/nginx/html/
+COPY --chmod=755 --from=builder /app/.docker/00-remove-ipv6-if-unavailable.sh /docker-entrypoint.d/
 
 #
 # export to host
@@ -46,4 +48,3 @@ COPY --from=builder /app/dist/ /usr/share/nginx/html/
 FROM scratch AS export
 
 COPY --from=builder /app/dist/mainsail.zip /
-
