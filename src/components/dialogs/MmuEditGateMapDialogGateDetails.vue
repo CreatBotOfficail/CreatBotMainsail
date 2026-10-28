@@ -139,6 +139,8 @@
                             class="w-100"
                             height="120"
                             :color="spoolmanColor"
+                            :multi-color-hexes="spoolmanSpool?.filament?.multi_color_hexes"
+                            :multi-color-direction="spoolmanSpool?.filament?.multi_color_direction"
                             @click-spool="showSpoolmanSpoolChooserDialog = true" />
                         <div class="pt-4">{{ $t('Panels.SpoolmanPanel.LastUsed') }}: {{ spoolmanLastUsed }}</div>
                         <div>
@@ -158,10 +160,9 @@
 
         <!-- SPOOLMAN (ADAPTED) SPOOL SELECTOR -->
         <spoolman-change-spool-dialog
-            :show-dialog="showSpoolmanSpoolChooserDialog"
+            v-model="showSpoolmanSpoolChooserDialog"
             :set-active-spool="false"
-            @select-spool="selectSpoolmanSpool"
-            @close="showSpoolmanSpoolChooserDialog = false" />
+            @select-spool="selectSpoolmanSpool" />
     </v-container>
 </template>
 
@@ -180,7 +181,7 @@ import MmuMixin, {
 import type { ServerSpoolmanStateSpool } from '@/store/server/spoolman/types'
 import { mdiSpeedometer, mdiRestart, mdiMinus, mdiPlus, mdiAdjust } from '@mdi/js'
 import { Debounce } from 'vue-debounce-decorator'
-import { VColorPickerColor } from 'vuetify/src/components/VColorPicker/util'
+import { VColorPickerColor } from '@/types/vuetify'
 
 @Component
 export default class MmuEditGateMapDialogGateDetails extends Mixins(BaseMixin, MmuMixin) {

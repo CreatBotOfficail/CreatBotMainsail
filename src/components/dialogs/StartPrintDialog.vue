@@ -1,6 +1,6 @@
 <template>
     <v-dialog
-        v-model="bool"
+        v-model="showDialog"
         :max-width="400"
         content-class="overflow-x-hidden"
         @click:outside="closeDialog"
@@ -20,7 +20,7 @@
             <v-divider v-if="showDivider" class="my-0" />
             <v-card-actions>
                 <v-spacer />
-                <v-btn text @click="closeDialog">{{ $t('Dialogs.StartPrint.Cancel') }}</v-btn>
+                <v-btn text @click="closeDialog">{{ $t('Buttons.Cancel') }}</v-btn>
                 <v-btn
                     color="primary"
                     text
@@ -34,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Mixins, Prop } from 'vue-property-decorator'
+import { Component, Mixins, Prop, VModel, Watch } from 'vue-property-decorator'
 import BaseMixin from '@/components/mixins/base'
 import { FileStateGcodefile } from '@/store/files/types'
 import SettingsRow from '@/components/settings/SettingsRow.vue'
@@ -48,7 +48,7 @@ import AfcMixin from '@/components/mixins/afc'
 export default class StartPrintDialog extends Mixins(BaseMixin, AfcMixin) {
     mdiPrinter3d = mdiPrinter3d
 
-    @Prop({ required: true, default: false }) readonly bool!: boolean
+    @VModel({ type: Boolean }) showDialog!: boolean
     @Prop({ required: true, default: '' }) readonly currentPath!: string
     @Prop({ required: true }) readonly file!: FileStateGcodefile
 
@@ -88,7 +88,17 @@ export default class StartPrintDialog extends Mixins(BaseMixin, AfcMixin) {
     }
 
     closeDialog() {
-        this.$emit('closeDialog')
+        this.showDialog = false
+    }
+
+    @Watch('showDialog')
+    onShowDialogChanged(newVal: boolean) {
+        if (!newVal || !this.file || this.file.metadataPulled || this.file.metadataRequested) return
+
+        const fullPath = ['gcodes']
+        if (this.currentPath) fullPath.push(this.currentPath.replace(/^\/+/, ''))
+        fullPath.push(this.file.filename)
+        this.$store.dispatch('files/requestMetadata', [{ filename: fullPath.join('/') }])
     }
 }
 </script>

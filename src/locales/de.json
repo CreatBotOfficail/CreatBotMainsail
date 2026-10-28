@@ -90,7 +90,6 @@
             "UploadPrint": "Hochladen & Drucken"
         },
         "TopCornerMenu": {
-            "Cancel": "Abbrechen",
             "ConfirmationDialog": {
                 "Description": {
                     "HostReboot": "Ein Neustart des Hosts wird zum Abbruch des aktuellen Druckauftrags führen!",
@@ -125,7 +124,6 @@
             "Stop": "Stop"
         },
         "UpdateDialog": {
-            "Close": "Schließen",
             "Empty": "Leer",
             "Recovering": "Wiederherstellung {software}...",
             "RecoveringDone": "Wiederherstellung {software} abgeschlossen!",
@@ -144,11 +142,18 @@
         "ScrewName": "Name der Schraube",
         "ScrewOutput": "{current} von {max}"
     },
+    "Buttons": {
+        "Cancel": "Abbrechen",
+        "Close": "Schließen",
+        "Confirm": "Bestätigen",
+        "Delete": "Löschen",
+        "No": "Nein",
+        "Save": "Speichern",
+        "Yes": "Ja"
+    },
     "CancelJobDialog": {
         "AreYouSure": "Bist du sicher?",
-        "CancelJob": "Druck abbrechen",
-        "No": "Nein",
-        "Yes": "Ja"
+        "CancelJob": "Druck abbrechen"
     },
     "ConnectionDialog": {
         "CannotConnectTo": "Kann keine Verbindung zu Moonraker ({host}) herstellen.",
@@ -170,9 +175,7 @@
     },
     "CoolDownDialog": {
         "AreYouSure": "Bist du sicher?",
-        "CoolDown": "Abkühlen",
-        "No": "Nein",
-        "Yes": "Ja"
+        "CoolDown": "Abkühlen"
     },
     "DevicesDialog": {
         "CanBusInfo": "Nur nicht zugewiesene Knoten können erkannt werden. Es wird empfohlen, nur ein nicht zugewiesenes Gerät an den Can-Bus anzuschließen, um Kommunikationsprobleme zu vermeiden. Klicke hier für weitere Informationen:",
@@ -194,7 +197,6 @@
                 "FilamentTypeMismatch": "Die Filament Typ im G-Code {{file}} stimmt nicht überein zum ausgewählten Filament Typ {{lane}}.",
                 "FilamentWeightNotEnough": "Nicht genug Filament in der ausgewählte Linie ({lane}). Benötigt: {required}, Verfügbar: {available}."
             },
-            "Cancel": "abbrechen",
             "DoYouWantToStartFilename": "Willst du {filename} starten?",
             "DoYouWantToStartFilenameFilament": "Willst du {filename} mit dem folgenden Filament starten?",
             "Headline": "Starte Job",
@@ -216,20 +218,18 @@
         "UnsavedChanges": "Ungespeicherte Änderungen",
         "UnsavedChangesMessage": "Möchtest du die Änderungen an {filename} speichern?",
         "UnsavedChangesSubMessage": "Deine Änderungen werden verloren gehen wenn du sie nicht speicherst. Du kannst diese Meldung in den Editor-Einstellungen deaktivieren.",
-        "Uploading": "Hochladen"
+        "Uploading": "Hochladen",
+        "ViewModuleDocumentation": "{module} Dokumentation anzeigen"
     },
     "EmergencyStopDialog": {
         "AreYouSure": "Bist du sicher?",
-        "EmergencyStop": "Notaus",
-        "No": "Nein",
-        "Yes": "Ja"
+        "EmergencyStop": "Notaus"
     },
     "Files": {
         "AddBatchToQueue": "Stapel zur Auftragswarteschlange hinzufügen",
         "AddToQueue": "Zur Auftragswarteschlange hinzufügen",
         "AllFiles": "Alle",
         "BedTemp": "Bett Temp.",
-        "Cancel": "Abbrechen",
         "ChamberTemp": "Kammer Temp.",
         "Count": "Anzahl",
         "Create": "Erstellen",
@@ -326,7 +326,6 @@
         "VoxelMode": "Voxel Modus (ASMBL)"
     },
     "Heightmap": {
-        "Abort": "abbruch",
         "BedMeshCalibrate": "Bed Mesh Kalibrierung",
         "BedMeshRemove": "Bed Mesh entfernen",
         "Calibrate": "kalibrieren",
@@ -354,7 +353,6 @@
         "NoProfile": "Kein Profil verfügbar",
         "Probed": "Abgetastet",
         "Profiles": "Profile",
-        "Remove": "löschen",
         "Rename": "umbenennen",
         "RenameBedMeshProfile": "Bed Mesh umbenennen",
         "ScaleGradient": "Farbverlauf skalieren",
@@ -371,7 +369,6 @@
         "AddToQueueSuccessful": "Datei {filename} zur Warteschlange hinzugefügt.",
         "AllJobs": "Alle",
         "AvgPrinttime": "Druckzeit - Ø",
-        "Cancel": "abbrechen",
         "Chart": "Diagramm",
         "CreateNote": "Notiz anlegen",
         "DateBasedReminder": "Datum",
@@ -435,7 +432,6 @@
         "Reminder": "Erinnerung",
         "Repeat": "Wiederholen",
         "Reprint": "Erneut drucken",
-        "Save": "speichern",
         "Search": "Suchen",
         "SelectedFilamentUsed": "Ausg. Filamentverbrauch",
         "SelectedJobs": "Ausg. Drucke",
@@ -467,7 +463,6 @@
         "TotalTime": "Gesamtzeit"
     },
     "JobQueue": {
-        "Cancel": "abbrechen",
         "ChangeCount": "Anzahl ändern",
         "Count": "Anzahl",
         "Empty": "Leer",
@@ -482,14 +477,12 @@
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Alle",
-            "Cancel": "Abbruch",
             "ConfigFiles": "Konfigurationsdateien",
             "ConfigRootDirectoryDoesntExists": "Keinen Konfigurations-Ordner gefunden. Bitte überprüfe die Option \"config_path\" im Abschnitt [file_manager] in der Moonraker Konfiguration.",
             "Create": "Erstellen",
             "CreateDirectory": "Verzeichnis erstellen",
             "CreateFile": "Datei erstellen",
             "CurrentPath": "Aktueller Pfad",
-            "Delete": "Löschen",
             "DeleteDirectory": "Verzeichnis löschen",
             "DeleteDirectoryQuestion": "Verzeichnis \"{name}\" und den gesamten Inhalt löschen?",
             "DeleteSelectedQuestion": "{count} ausgewählte Elemente löschen?",
@@ -528,7 +521,6 @@
         },
         "LogfilesPanel": {
             "Accept": "akzeptieren",
-            "Cancel": "abbrechen",
             "Logfiles": "Logdateien",
             "Rollover": "Logdatei zurücksetzen",
             "RolloverDescription": "Wähle Logs zum zurücksetzen:",
@@ -564,7 +556,6 @@
             "Abort": "abbrechen",
             "AreYouSure": "Bist du dir sicher?",
             "CheckForUpdates": "auf Aktualisierungen prüfen",
-            "Close": "schließen",
             "CommitHistory": "Commit Verlauf",
             "Commits": "Commits",
             "CommitsAvailable": "keine Einreichung verfügbar | {count} Einreichung verfügbar | {count} Einreichungen verfügbar",
@@ -618,7 +609,6 @@
             "BufferDisabled": "Puffer nicht aktiv",
             "BypassActive": "Filament in Bypass geladen, Werkzeugwechsel sind deaktiviert!",
             "Calibrate": "Kalibrieren",
-            "Cancel": "Abbrechen",
             "CaptureTD": "TD erfassen",
             "Color": "Farbe",
             "DebugJson": "Debug JSON",
@@ -688,7 +678,9 @@
             "Unloading": "Entladen",
             "UnloadLane": "Linie entladen",
             "Weight": "Gewicht",
-            "WeightSubtitle": "Das Gewicht des Filaments in Gramm (ohne Spule)."
+            "WeightRemaining": "Noch {weight}g übrig",
+            "WeightSubtitle": "Das Gewicht des Filaments in Gramm (ohne Spule).",
+            "WeightUsed": "{weight}g verbraucht"
         },
         "ExtruderControlPanel": {
             "Allowed": "Erlaubt",
@@ -740,6 +732,10 @@
             "Restart": "Neustart",
             "ServiceReports": "{service} meldet"
         },
+        "LedEffectsPanel": {
+            "Headline": "LED Effekte",
+            "StopAll": "Alle Effekte stoppen"
+        },
         "MachineSettingsPanel": {
             "Headline": "Maschine",
             "MotionSettings": {
@@ -784,6 +780,7 @@
         },
         "MmuPanel": {
             "Active": "Aktiv",
+            "ButtonChangeTool": "Werkzeug wechseln",
             "ButtonCheckAllGates": "Überprüfe alle Gates",
             "ButtonCheckGate": "Gate überprüfen",
             "ButtonEject": "Auswerfen",
@@ -798,13 +795,16 @@
             "ButtonUnloadExt": "Entladen ext",
             "ButtonUnlock": "Freigeben",
             "Bypass": "Bypass",
-            "Cancel": "Abbrechen",
             "Clog": "Verstopfung",
             "ClogTangleDetection": "Verstopfung/Verheddern Erkennung",
             "Dialog": {
                 "AreYouSure": "Bist du sicher?"
             },
             "Disabled": "deaktiviert",
+            "Drying": "Trocknen",
+            "DryingCancelled": "Trocknen abgebrochen",
+            "DryingComplete": "Trocknen abgeschlossen",
+            "DryingQueued": "Trocknen in Warteschlange",
             "EditGateMap": "Filamente bearbeiten",
             "EditGateMapTitle": "Filamente Bearbeiten (Gate Zuweisung)",
             "EditTtgMap": "Werkzeugzuweisung",
@@ -837,6 +837,7 @@
             "Gear": "Zahnrad",
             "Guard": "Wächter",
             "Headline": "Mmu",
+            "Heater": "Heizung",
             "LargeFilamentStatus": "Status großer Filamente",
             "MmuMaintenance": "MMU-Wartung",
             "MmuMaintenanceDialog": {
@@ -905,6 +906,7 @@
             "Ok": "Ok",
             "PreGate": "Vor-Gate",
             "RecoverState": "MMU-Status reparieren",
+            "ShowClimate": "Zeige Klima-Informationen",
             "ShowClogTangleDetection": "Verstopfungs-/Verwicklungserkennung",
             "ShowDetails": "Filamentdetails",
             "ShowLogos": "Logo anzeigen",
@@ -947,15 +949,8 @@
             },
             "Unknown": "Unbekannt"
         },
-        "PowerControlPanel": {
-            "Error": "Fehler",
-            "Off": "Aus",
-            "On": "An",
-            "PowerControl": "Stromversorgung"
-        },
         "SpoolmanPanel": {
             "ActiveSpool": "Aktive Rolle",
-            "Cancel": "Abbrechen",
             "ChangeSpool": "Rolle wechseln",
             "DaysAgo": "vor {days} Tagen",
             "EjectSpool": "Rolle auswerfen",
@@ -991,7 +986,6 @@
             "Estimate": "Schätzung",
             "ETA": "ETA",
             "ExcludeObject": {
-                "Cancel": "abbrechen",
                 "Excluded": "ausgeschlossen",
                 "ExcludeObject": "Objekt ausschließen",
                 "ExcludeObjectHeadline": "Objekt ausschließen",
@@ -1056,8 +1050,6 @@
             "State": "Status",
             "Target": "Ziel",
             "TemperaturesInChart": "Temperatur [°C]",
-            "TempTooHigh": "Temperature von {name} zu hoch! (max: {max})",
-            "TempTooLow": "Temperature von {name} zu niedrig! (min: {min})",
             "TurnHeaterOff": "Heizung ausschalten"
         },
         "ToolheadControlPanel": {
@@ -1078,6 +1070,7 @@
         },
         "WebcamPanel": {
             "All": "Alle",
+            "BrowserNotSupported": "Dein Browser unterstützt diesen Webcam-Typ nicht.",
             "ConnectingTo": "Verbinde zu {url}",
             "Disconnected": "Getrennt",
             "ErrorWhileConnecting": "Fehler während dem Verbinden zu {url}",
@@ -1091,7 +1084,6 @@
             "Headline": "Z-Versatz",
             "Later": "Später",
             "Ok": "OK",
-            "Save": "Speichern",
             "SaveConfig": "SAVE CONFIG",
             "SaveInfoDescription": "Der neue Z-Versatz wurde berechnet und registriert. Auf \"SAVE CONFIG\", klicken um den neuen Z-Versatz in der printer.cfg zu speichern und Klipper neu zu starten.",
             "SaveInfoDescriptionPrint": "Der neue Z-Versatz wurde berechnet und registriert. Nach dem Drucken auf \"SAVE CONFIG\" in der oberen Leiste klicken um den neuen Z-Versatz in der printer.cfg zu speichern und Klipper neu zu starten.",
@@ -1100,10 +1092,8 @@
     },
     "PowerDeviceChangeDialog": {
         "AreYouSure": "Bist du sicher?",
-        "No": "Nein",
         "TurnDeviceOff": "{device} ausschalten",
-        "TurnDeviceOn": "{device} anschalten",
-        "Yes": "Ja"
+        "TurnDeviceOn": "{device} anschalten"
     },
     "Router": {
         "Console": "Konsole",
@@ -1147,8 +1137,6 @@
         "YouCanFindMore": "Weitere Details findest du unter"
     },
     "Settings": {
-        "Cancel": "Abbruch",
-        "Close": "Schließen",
         "ConsoleTab": {
             "AddFilter": "Filter hinzufügen",
             "Console": "Konsole",
@@ -1215,6 +1203,8 @@
             "ConfirmUnsavedChanges": "Aufforderung zum Speichern oder Verwerfen nicht gespeicherter Änderungen",
             "ConfirmUnsavedChangesDescription": "Wenn aktiviert, dann ist eine Bestätigung notwendig um ungespeicherte Änderungen zu speichern/verwerfen. Wenn deaktiviert,dann werden Änderungen im Hintergrund verworfen.",
             "Editor": "Editor",
+            "KlipperDocsTooltips": "Tooltips zur Klipper-Dokumentation aktivieren",
+            "KlipperDocsTooltipsDescription": "Wenn aktiviert, erhälst du beim Überfahren der Überschriften in der Konfiguration einen Link zu den Klipper Dokumentationen.",
             "KlipperRestartMethod": "Klipper Neustartmethode",
             "KlipperRestartMethodDescription": "Wähle aus, welche Neustartmethode verwendet werden soll wenn 'Speichern & Neustarten' geklickt wir im Editor.",
             "Spaces": "Leerzeichen: {count}",
@@ -1550,6 +1540,7 @@
         "Update": "speichern",
         "WebcamsTab": {
             "AddWebcam": "Webcam hinzufügen",
+            "AspectRatio": "Seitenverhältnis",
             "Color": "Farbe",
             "CreateWebcam": "Erstelle Webcam",
             "EditCrowsnestConf": "crowsnest.conf bearbeiten",
@@ -1560,6 +1551,7 @@
             "HideFps": "FPS-Anzeige verstecken",
             "Hlsstream": "HLS-Stream",
             "Horizontally": "horizontal",
+            "HtmlIframe": "HTML iframe",
             "HtmlVideo": "HTML Video",
             "IconBed": "Bett",
             "IconCam": "Kamera",
@@ -1569,6 +1561,7 @@
             "IconMcu": "MCU",
             "IconNozzle": "Düse",
             "IconPrinter": "Drucker",
+            "InvalidAspectRatio": "Muss WIDTH:HEIGHT (z.B.: 16:9) sein",
             "JMuxerStream": "Roher h264 stream (jmuxer)",
             "Mjpegstreamer": "MJPEG-Streamer",
             "MjpegstreamerAdaptive": "Adaptive MJPEG-Streamer (experimental)",
@@ -1596,7 +1589,6 @@
     "Timelapse": {
         "AllFiles": "Alle",
         "Autorender": "Autorender",
-        "Cancel": "Abbrechen",
         "Create": "Erstellen",
         "CreateNewDirectory": "Neues Verzeichnis",
         "CurrentPath": "Aktueller Pfad",

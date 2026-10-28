@@ -74,7 +74,7 @@
 
 <script lang="ts">
 import Component from 'vue-class-component'
-import { Mixins, Prop, Watch } from 'vue-property-decorator'
+import { Mixins, Prop, VModel, Watch } from 'vue-property-decorator'
 import BaseMixin from '@/components/mixins/base'
 import Panel from '@/components/ui/Panel.vue'
 import { mdiCloseThick, mdiAdjust, mdiDatabase, mdiMagnify, mdiRefresh, mdiEject } from '@mdi/js'
@@ -91,7 +91,7 @@ export default class SpoolmanChangeSpoolDialog extends Mixins(BaseMixin) {
     mdiMagnify = mdiMagnify
     mdiRefresh = mdiRefresh
 
-    @Prop({ required: true }) declare readonly showDialog: boolean
+    @VModel({ type: Boolean }) showDialog!: boolean
     @Prop({ required: false, default: null }) declare readonly tool?: string
     @Prop({ required: false, default: null }) declare readonly afcLane?: string
     @Prop({ required: false, default: true }) declare readonly setActiveSpool?: boolean
@@ -157,14 +157,14 @@ export default class SpoolmanChangeSpoolDialog extends Mixins(BaseMixin) {
     }
 
     close() {
-        this.$emit('close')
+        this.showDialog = false
     }
 
     refreshSpools() {
         this.$store.dispatch('server/spoolman/refreshSpools')
     }
 
-    customFilter(value: any, search: string, item: ServerSpoolmanStateSpool): boolean {
+    customFilter(_value: unknown, search: string, item: ServerSpoolmanStateSpool): boolean {
         if (search.trim().startsWith('web+spoolman:s-')) {
             const spoolId = parseInt(search.split('-')[1] ?? -1)
             return item.id === spoolId
@@ -175,7 +175,7 @@ export default class SpoolmanChangeSpoolDialog extends Mixins(BaseMixin) {
             item.id.toString(),
             item.comment,
             item.filament.name,
-            item.filament.vendor.name,
+            item.filament.vendor?.name,
             item.filament.material,
             item.location,
         ]
@@ -204,8 +204,26 @@ export default class SpoolmanChangeSpoolDialog extends Mixins(BaseMixin) {
             return
         }
 
-        // if tool is set, execute setMacroVariable and close, because it's not an active printing spool change
+        // if tool is set
+        // -> execute setMacroVariable
+        // -> write to lane database
+        // and close, because it's not an active printing spool change
         if (this.tool) {
+            // more infos can be found in the orcaslicer repo:
+            // https://github.com/OrcaSlicer/OrcaSlicer/blob/e700113b39f39b837175c680929538aa9655a9f9/src/slic3r/Utils/MoonrakerPrinterAgent.cpp#L727
+            this.$socket.emit('server.database.post_item', {
+                namespace: 'lane_data',
+                key: this.tool,
+                value: {
+                    // must be a string for orcaslicer and this will be the filament slot number
+                    lane: this.tool.substring(1),
+                    color: spool.filament.color_hex,
+                    material: spool.filament.material,
+                    bed_temp: spool.filament.settings_bed_temp,
+                    nozzle_temp: spool.filament.settings_extruder_temp,
+                },
+            })
+
             this.setMacroVariable(spool)
             this.close()
             return
