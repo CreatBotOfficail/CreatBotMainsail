@@ -90,7 +90,6 @@
             "UploadPrint": "Feltöltés és nyomtatás"
         },
         "TopCornerMenu": {
-            "Cancel": "Mégsem",
             "ConfirmationDialog": {
                 "Description": {
                     "HostReboot": "A gazda újraindítása a jelenlegi nyomtatás kudarcával fog járni!",
@@ -125,7 +124,6 @@
             "Stop": "Stop"
         },
         "UpdateDialog": {
-            "Close": "Bezárás",
             "Empty": "Üres",
             "Recovering": "{software} helyreállítása...",
             "RecoveringDone": "{software} helyreállítása kész!",
@@ -144,11 +142,18 @@
         "ScrewName": "Csavar neve",
         "ScrewOutput": "{current} / {max}"
     },
+    "Buttons": {
+        "Cancel": "Mégsem",
+        "Close": "Bezárás",
+        "Confirm": "Megerősít",
+        "Delete": "Törlés",
+        "No": "Nem",
+        "Save": "Mentés",
+        "Yes": "Igen"
+    },
     "CancelJobDialog": {
         "AreYouSure": "Biztos vagy benne?",
-        "CancelJob": "Munka törlése",
-        "No": "Nem",
-        "Yes": "Igen"
+        "CancelJob": "Munka törlése"
     },
     "ConnectionDialog": {
         "CannotConnectTo": "Nem lehet csatlakozni a Moonrakerhez ({host}).",
@@ -170,9 +175,7 @@
     },
     "CoolDownDialog": {
         "AreYouSure": "Biztos vagy benne?",
-        "CoolDown": "Visszahűtés",
-        "No": "Nem",
-        "Yes": "Igen"
+        "CoolDown": "Visszahűtés"
     },
     "DevicesDialog": {
         "CanBusInfo": "Csak a nem hozzárendelt csomópontok észlelhetők. A kommunikációs problémák elkerülése érdekében ajánlott, hogy csak egy nem hozzárendelt eszköz csatlakozzon a CANbus-hoz. További részletekért kattints a linkre:",
@@ -190,7 +193,10 @@
     },
     "Dialogs": {
         "StartPrint": {
-            "Cancel": "Mégsem",
+            "Afc": {
+                "FilamentTypeMismatch": "A ({file}) G-Code állományban szereplő filament típus nem egyezik a kiválasztott ({lane}) filament típussal .",
+                "FilamentWeightNotEnough": "Nincs elegendő filament a kiválasztott csatornában ({lane}). Szükséges: {required}, rendelkezésre áll: {available}."
+            },
             "DoYouWantToStartFilename": "Elkezded a {filename} nyomtatását?",
             "DoYouWantToStartFilenameFilament": "Szeretnéd a {filename} fájlt a következő nyomtatószállal indítani?",
             "Headline": "Feladat kezdése",
@@ -212,20 +218,18 @@
         "UnsavedChanges": "Mentetlen Változások",
         "UnsavedChangesMessage": "Szeretnéd menteni a következőn végzett változtatásokat: {filename}?",
         "UnsavedChangesSubMessage": "A változtatásaid elvesznek ha nem mented őket. Ezt az üzenetet az Editor beállításokban kikapcsolhatod.",
-        "Uploading": "Feltöltés"
+        "Uploading": "Feltöltés",
+        "ViewModuleDocumentation": "{module} dokumentáció megtekintése"
     },
     "EmergencyStopDialog": {
         "AreYouSure": "Biztos?",
-        "EmergencyStop": "Vészstop",
-        "No": "Nem",
-        "Yes": "Igen"
+        "EmergencyStop": "Vészstop"
     },
     "Files": {
         "AddBatchToQueue": "Tétel hozzáadása a várólistához",
         "AddToQueue": "Várólistához adva",
         "AllFiles": "Mind",
         "BedTemp": "Ágy hőmérs.",
-        "Cancel": "Mégsem",
         "ChamberTemp": "Kamra hőmérs.",
         "Count": "Számol",
         "Create": "Létrehoz",
@@ -243,6 +247,7 @@
         "Empty": "Üres",
         "ExtruderTemp": "Adagoló hőmérs.",
         "FilamentName": "Nyomtatószál neve",
+        "Filaments": "Filamentek",
         "FilamentType": "Nyomtatószál típusa",
         "FilamentUsage": "Nyomtatószál használat",
         "FilamentWeight": "Nyomtatószál súlya",
@@ -321,7 +326,6 @@
         "VoxelMode": "Voxel Mód (ASMBL)"
     },
     "Heightmap": {
-        "Abort": "megszakítás",
         "BedMeshCalibrate": "Síkrács kalibrálása",
         "BedMeshRemove": "Síkrács eltávolítása",
         "Calibrate": "kalibrálás",
@@ -349,7 +353,6 @@
         "NoProfile": "Nincs elérhető profil",
         "Probed": "Bemért",
         "Profiles": "Profilok",
-        "Remove": "eltávolítás",
         "Rename": "átnevez",
         "RenameBedMeshProfile": "Síkrács profil átnevezése",
         "ScaleGradient": "Gradiens skálázása",
@@ -366,7 +369,6 @@
         "AddToQueueSuccessful": "Fájl {filename} hozzáadva a várólistához.",
         "AllJobs": "Mind",
         "AvgPrinttime": "Átlag nyomtatási idő - Ø",
-        "Cancel": "Mégsem",
         "Chart": "Diagram",
         "CreateNote": "Megjegyzés létrehozása",
         "DateBasedReminder": "Dátum",
@@ -430,7 +432,6 @@
         "Reminder": "Emlékeztető",
         "Repeat": "Ismétlés",
         "Reprint": "Újranyomtat",
-        "Save": "ment",
         "Search": "keresés",
         "SelectedFilamentUsed": "Kiválasztott használt nyomtatószál",
         "SelectedJobs": "Kiválasztott Munkák",
@@ -462,7 +463,6 @@
         "TotalTime": "Teljes idő"
     },
     "JobQueue": {
-        "Cancel": "Mégsem",
         "ChangeCount": "Számlálás módosítása",
         "Count": "Számol",
         "Empty": "Üres",
@@ -477,14 +477,12 @@
     "Machine": {
         "ConfigFilesPanel": {
             "AllFiles": "Mind",
-            "Cancel": "Mégsem",
             "ConfigFiles": "Konfig fájlok",
             "ConfigRootDirectoryDoesntExists": "Nem találtunk konfigurációs könyvtárat. Kérjük, ellenőrizd a „config_path” opciót a Moonraker konfiguráció [file_manager] szakaszában.",
             "Create": "Létrehoz",
             "CreateDirectory": "Mappa létrehozása",
             "CreateFile": "Fájl létrehozása",
             "CurrentPath": "Aktuális útvonal",
-            "Delete": "Törlés",
             "DeleteDirectory": "Mappa törlése",
             "DeleteDirectoryQuestion": "Tényleg szeretnéd törölni a(z) \"{name}\" mappát és minden tartalmát?",
             "DeleteSelectedQuestion": "Töröljem a kiválasztott {count} elemeket?",
@@ -523,7 +521,6 @@
         },
         "LogfilesPanel": {
             "Accept": "elfogad",
-            "Cancel": "mégsem",
             "Logfiles": "Logfájlok",
             "Rollover": "Görgetett naplók",
             "RolloverDescription": "Kérjük, válaszd ki, mely naplókat kell visszaállítani:",
@@ -559,7 +556,6 @@
             "Abort": "Megszakítás",
             "AreYouSure": "Biztos vagy benne?",
             "CheckForUpdates": "Frissítések keresése",
-            "Close": "Bezár",
             "CommitHistory": "Történet rögzítése",
             "Commits": "Véglegesítés",
             "CommitsAvailable": "nincs elérhető véglegesítés | {count} véglegesítés elérhető | {count} véglegesítés elérhető",
@@ -607,6 +603,62 @@
         "Headline": "Kézi szintezés"
     },
     "Panels": {
+        "AfcPanel": {
+            "AfcSettings": "AFC beállítások",
+            "BrushNozzle": "Fúvókatisztítás",
+            "BufferDisabled": "Puffer inaktív",
+            "Calibrate": "Kalibrálás",
+            "Color": "Szín",
+            "DebugJson": "JSON hibakeresés",
+            "Detected": "Észlelve",
+            "EjectFilament": "Filament kiadása",
+            "Ejecting": "Kiadása",
+            "Empty": "Üres",
+            "Error": "Hiba",
+            "FilamentForLane": "A(z) {name} filamentje",
+            "Functions": "Funkciók",
+            "Headline": "AFC",
+            "Hub": "Hub",
+            "HubLoad": "Hub betöltése",
+            "Idle": "Üresjárat",
+            "InfiniteSpoolDescription": "A következő csatorna betöltése, ha a(z) {name} kifogy",
+            "InfiniteSpoolHeadline": "Végtelen orsó",
+            "Initialized": "Inicializált",
+            "LaneLoadedNone": "ÜRES",
+            "LaneMapping": "Csatorna kiosztás",
+            "LedOff": "LED-ek ki",
+            "LedOn": "LED-ek be",
+            "LoadedInLane": "{lane} betöltve",
+            "Loading": "Betöltés",
+            "LoadLane": "Csatorna betöltése",
+            "Material": "Anyag",
+            "MaterialSubtitle": "Például ABS, PETG, PLA, stb.",
+            "Moving": "Mozgásban",
+            "ParkNozzle": "Fúvóka parkolás",
+            "PostExtruderSensor": "Extruder utáni szenzor",
+            "PreExtruderSensor": "Extruder előtti szenzor",
+            "PrepDetected": "Filament érzékelve, de nincs betöltve",
+            "Printing": "Nyomtatás",
+            "RammingSensor": "Ütközés szenzor",
+            "Restoring": "Visszaállítás",
+            "SetSpool": "Orsó kiválasztása",
+            "Settings": "Beállítások",
+            "SettingsDialog": {
+                "BowdenLength": "Bowden hossza",
+                "BowdenLengthDescription": "A Hub és a nyomtatófej közötti Bowden cső hossza.",
+                "DistHub": "Hub távolsága",
+                "DistHubDescription": "A csatorna extruder fogaskerekei és a hub közötti távolság (mm).",
+                "Help": "Súgó",
+                "LoadUnloadLane": "Csatorna betöltése / kiürítése",
+                "LoadUnloadLaneDescription": "A gombokra kattintva betöltheti vagy kiürítheti a filamentet a csatornából az extruderbe, illetve vissza.",
+                "SaveExtruderValues": "Extruder beállítások mentése",
+                "SaveExtruderValuesDescription": "Ez a jelenlegi extruder aktuális értékeit a hozzá tartozó konfigurációs fájlba írja.",
+                "SaveHubDist": "Csatorna beállítások mentése",
+                "SaveHubDistDescription": "A megadott csatorna értékeit a konfigurációs fájlba menti.",
+                "WriteToFile": "Fájlba írás"
+            },
+            "ShowFilamentName": "Filament név megjelenítése"
+        },
         "ExtruderControlPanel": {
             "Allowed": "Megengedett",
             "CleanNozzle": "Fúvóka tisztítása",
@@ -698,15 +750,8 @@
                 "Empty": "Üres"
             }
         },
-        "PowerControlPanel": {
-            "Error": "Hiba",
-            "Off": "KI",
-            "On": "BE",
-            "PowerControl": "Tápellátás vezérlés"
-        },
         "SpoolmanPanel": {
             "ActiveSpool": "Aktív tekercs",
-            "Cancel": "Mégsem",
             "ChangeSpool": "Orsó cseréje",
             "DaysAgo": "{days} nappal ezelőtt",
             "EjectSpool": "Orsó kiadása",
@@ -742,7 +787,6 @@
             "Estimate": "Becslés",
             "ETA": "Becs.Idő",
             "ExcludeObject": {
-                "Cancel": "mégsem",
                 "Excluded": "Kizárva",
                 "ExcludeObject": "Test kizárása",
                 "ExcludeObjectHeadline": "Test kizárása",
@@ -806,8 +850,6 @@
             "State": "Állapot",
             "Target": "Cél",
             "TemperaturesInChart": "Hőmérséklet [°C]",
-            "TempTooHigh": "A {name} hőmérséklete túl magas! (max: {max})",
-            "TempTooLow": "A {name} hőmérséklete túl alacsony! (min: {min})",
             "TurnHeaterOff": "A fűtés kikapcsolása"
         },
         "ToolheadControlPanel": {
@@ -841,7 +883,6 @@
             "Headline": "Z-eltolás",
             "Later": "Később",
             "Ok": "OK",
-            "Save": "Mentés",
             "SaveConfig": "BÁLLÍTÁS_MENTÉSE",
             "SaveInfoDescription": "Új Z-eltolás kiszámítva és regisztrálva. Kattints a \"BÁLLÍTÁS_MENTÉSE\" gombra az új Z-eltolás eltárolásához a printer.cfg-be és indítsd újra a Klippert.",
             "SaveInfoDescriptionPrint": "Új Z-eltolás kiszámítva és regisztrálva. Nyomtatás után kattints a \"BÁLLÍTÁS MENTÉSE\" gombra a felső sávban, a printer.cfg-be való mentéshez és a Klipper újraindításához.",
@@ -850,10 +891,8 @@
     },
     "PowerDeviceChangeDialog": {
         "AreYouSure": "Biztos?",
-        "No": "Nem",
         "TurnDeviceOff": "{device} kikapcsolása",
-        "TurnDeviceOn": "{device} bekapcsolása",
-        "Yes": "Igen"
+        "TurnDeviceOn": "{device} bekapcsolása"
     },
     "Router": {
         "Console": "Konzol",
@@ -897,8 +936,6 @@
         "YouCanFindMore": "További részleteket itt találsz"
     },
     "Settings": {
-        "Cancel": "Mégsem",
-        "Close": "Bezárás",
         "ConsoleTab": {
             "AddFilter": "szűrő hozzáadása",
             "Console": "Konzol",
@@ -1338,11 +1375,9 @@
     "Timelapse": {
         "AllFiles": "Mind",
         "Autorender": "Automatikus renderelés",
-        "Cancel": "Mégsem",
         "Create": "Létrehoz",
         "CreateNewDirectory": "mappa létrehozása",
         "CurrentPath": "Jelenlegi elérési út",
-        "Delete": "Törlés",
         "DeleteDirectory": "Mappa törlése",
         "DeleteDirectoryQuestion": "Tényleg szeretnéd minden összetevőjével együtt törölni a következő mappát: \"{name}\"?",
         "DeleteSelectedQuestion": "Tényleg törölni szeretnéd a kiválasztott fájlokat {count}?",

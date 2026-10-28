@@ -1,5 +1,6 @@
 import { Module } from 'vuex'
 import { ServerUpdateManagerState } from '@/store/server/updateManager/types'
+import { RootState } from '@/store/types'
 import { actions } from '@/store/server/updateManager/actions'
 import { mutations } from '@/store/server/updateManager/mutations'
 import { getters } from '@/store/server/updateManager/getters'
@@ -28,8 +29,7 @@ export const getDefaultState = (): ServerUpdateManagerState => {
 // initial state
 const state = getDefaultState()
 
-// eslint-disable-next-line
-export const updateManager: Module<ServerUpdateManagerState, any> = {
+export const updateManager: Module<ServerUpdateManagerState, RootState> = {
     namespaced: true,
     state,
     getters,

@@ -33,7 +33,7 @@
             </v-card-text>
             <v-card-actions>
                 <v-spacer />
-                <v-btn text color="disabled" @click="closeDialog">{{ $t('Panels.AfcPanel.Cancel') }}</v-btn>
+                <v-btn text color="disabled" @click="closeDialog">{{ $t('Buttons.Cancel') }}</v-btn>
                 <v-btn :disabled="disableSetBtn" color="primary" text @click="setSpool">
                     {{ $t('Panels.AfcPanel.SetSpool') }}
                 </v-btn>
@@ -49,7 +49,7 @@ import Panel from '@/components/ui/Panel.vue'
 import { mdiCloseThick } from '@mdi/js'
 import AfcMixin from '@/components/mixins/afc'
 import { afcIconLogo } from '@/plugins/afcIcons'
-import { VColorPickerColor } from 'vuetify/src/components/VColorPicker/util'
+import { VColorPickerColor } from '@/types/vuetify'
 import { Debounce } from 'vue-debounce-decorator'
 
 @Component({
@@ -71,7 +71,7 @@ export default class AfcUnitLaneFilamentDialog extends Mixins(BaseMixin, AfcMixi
     }
 
     get currentColor() {
-        return this.lane.color ?? '#000000'
+        return this.lane.color || '#000000'
     }
 
     get currentMaterial() {
